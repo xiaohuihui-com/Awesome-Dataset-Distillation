@@ -19,7 +19,7 @@
 | 2021 | [Dataset Condensation with Gradient Matching](https://arxiv.org/abs/2006.05929) |  ICLR   |   [code](https://github.com/VICO-UoE/DatasetCondensation)    |
 | 2021 | [Soft-Label Dataset Distillation and Text Dataset Distillation](https://ieeexplore.ieee.org/abstract/document/9533769) |  IJCNN  |                              -                               |
 | 2020 | [Flexible dataset distillation: Learn labels instead of images](https://arxiv.org/abs/2006.08572) | NeurIPS |                              -                               |
-| 2018 | [DATASET DISTILLATION](https://arxiv.org/abs/1811.10959)     |    -    |     [code](https://github.com/SsnL/dataset-distillation)     |
+| 2018 | [Dataset Distallation](https://arxiv.org/abs/1811.10959)     |    -    |     [code](https://github.com/SsnL/dataset-distillation)     |
 
 
 
