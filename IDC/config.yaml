@@ -1,0 +1,55 @@
+dataset: svhn
+model: convnet
+data_dir: ./data
+save_dir: ./result
+save_ckpt: true
+augment: false
+pretrained: false
+plotter: true
+load_memory: true
+dsa: true
+dsa_strategy: color_crop_flip_scale_rotate
+aug_type: color_crop_cutout
+num_workers: 8
+batch_size: 64
+batch_syn_max: 128
+ipc: 10
+epochs: 300
+init: mix
+decode_type: single
+factor: 2
+mixup: cut
+mixup_net: cut
+mix_p: 0.5
+beta: 1.0
+seed: 0
+device_ids: '0,1'
+num_classes: 10
+size: 32
+channel: 3
+model_params:
+  convnet:
+    net_norm: 'instance'
+    net_depth: 3
+    net_width: 128
+    net_act: 'relu'
+    net_pooling: 'avgpooling'
+  densenet_cifar:
+    nclass: 10
+  resnet:
+    depth: 10
+    net_norm: 'instance'
+  resnetap:
+    depth: 10
+    width: 1.0
+    net_norm: 'instance'
+    nch: 3
+learning:
+  loss: 'ce'
+  optim: 'sgd'
+  scheduler: 'multisteplr'
+  sgd:
+    lr: 0.01
+    momentum: 0.9
+    weight_decay: 0.0005
+

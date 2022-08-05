@@ -1,0 +1,37 @@
+datefmt: '%Y-%m-%d %H:%M:%S %p'
+disable_existing_loggers: false
+filters: {}
+formatters:
+  formatter1:
+    format: '[%(asctime)s] %(filename)s:%(lineno)d %(levelname)s: %(message)s'
+  formatter2:
+    format: '[%(asctime)s] : %(message)s'
+handlers:
+  file1_hanlder:
+    class: logging.FileHandler
+    encoding: utf-8
+    filename: E:\pycharm_files\git_project\IDC\config\mylog.log
+    formatter: formatter1
+    level: DEBUG
+  terminal:
+    class: logging.StreamHandler
+    formatter: formatter2
+    level: DEBUG
+loggers:
+  ? ''
+  : handlers:
+    - file1_hanlder
+    - terminal
+    level: INFO
+    propagate: false
+  file:
+    handlers:
+    - file1_hanlder
+    level: INFO
+    propagate: false
+  terminal:
+    handlers:
+    - terminal
+    level: INFO
+    propagate: false
+version: 1

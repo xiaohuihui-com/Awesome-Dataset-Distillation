@@ -1,0 +1,491 @@
+[2022-08-03 23:06:42,561] try_try.py:21 INFO: {'dataset': 'cifar10', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'num_workers': 8, 'batch_size': 64, 'epochs': 300, 'decode_type': 'single', 'mixup': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'nclass': 10, 'seed': 0, 'models': {'model': 'convnet', 'convnet': {'num_classes': 10, 'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'channel': 3, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'dataset': 'imagent', 'depth': 10, 'num_classes': 10, 'size': 56, 'net_norm': 'instance'}, 'resnetap': {'dataset': 'imagent', 'num_classes': 10, 'size': 112, 'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-03 23:06:44,982] try_try.py:27 INFO: Using cuda device.
+[2022-08-03 23:06:44,983] try_try.py:28 INFO: Using 8 dataloader workers every process
+[2022-08-03 23:06:44,983] try_try.py:29 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-03 23:06:48,926] try_try.py:35 INFO: Creating model convnet, model parameters: 0.32M
+[2022-08-03 23:06:48,928] try_try.py:53 INFO: Repeat: 1/1
+[2022-08-03 23:06:48,928] trainer.py:87 INFO: Start training with DSA and cut mixup
+[2022-08-03 23:07:27,482] trainer.py:106 INFO: epoch[1/300] train: Top1 38.32  Top5 83.17  Loss 1.797 | test: Top1 58.98  Top5 94.71  Loss 1.182
+[2022-08-03 23:08:01,673] trainer.py:106 INFO: epoch[2/300] train: Top1 47.93  Top5 88.52  Loss 1.532 | test: Top1 66.38  Top5 96.33  Loss 1.002
+[2022-08-03 23:08:36,398] trainer.py:106 INFO: epoch[3/300] train: Top1 51.29  Top5 89.62  Loss 1.458 | test: Top1 69.90  Top5 97.07  Loss 0.920
+[2022-08-03 23:09:11,052] trainer.py:106 INFO: epoch[4/300] train: Top1 54.72  Top5 91.02  Loss 1.369 | test: Top1 71.75  Top5 97.53  Loss 0.856
+[2022-08-03 23:09:45,427] trainer.py:106 INFO: epoch[5/300] train: Top1 58.34  Top5 92.39  Loss 1.303 | test: Top1 73.76  Top5 97.72  Loss 0.815
+[2022-08-03 23:10:19,889] trainer.py:106 INFO: epoch[6/300] train: Top1 58.45  Top5 92.09  Loss 1.282 | test: Top1 75.46  Top5 97.86  Loss 0.767
+[2022-08-03 23:10:53,736] trainer.py:106 INFO: epoch[7/300] train: Top1 60.61  Top5 93.11  Loss 1.226 | test: Top1 75.36  Top5 98.03  Loss 0.743
+[2022-08-03 23:11:27,002] trainer.py:106 INFO: epoch[8/300] train: Top1 61.48  Top5 93.03  Loss 1.204 | test: Top1 77.64  Top5 98.11  Loss 0.705
+[2022-08-03 23:12:01,524] trainer.py:106 INFO: epoch[9/300] train: Top1 62.44  Top5 93.49  Loss 1.199 | test: Top1 77.37  Top5 98.12  Loss 0.717
+[2022-08-03 23:12:35,837] trainer.py:106 INFO: epoch[10/300] train: Top1 61.56  Top5 92.80  Loss 1.196 | test: Top1 77.24  Top5 98.38  Loss 0.701
+[2022-08-03 23:13:10,307] trainer.py:106 INFO: epoch[11/300] train: Top1 63.27  Top5 93.82  Loss 1.173 | test: Top1 77.34  Top5 98.16  Loss 0.697
+[2022-08-03 23:13:44,949] trainer.py:106 INFO: epoch[12/300] train: Top1 61.75  Top5 93.05  Loss 1.198 | test: Top1 77.85  Top5 98.26  Loss 0.691
+[2022-08-03 23:14:19,334] trainer.py:106 INFO: epoch[13/300] train: Top1 63.45  Top5 93.38  Loss 1.156 | test: Top1 78.24  Top5 98.39  Loss 0.667
+[2022-08-03 23:14:53,781] trainer.py:106 INFO: epoch[14/300] train: Top1 63.76  Top5 93.42  Loss 1.152 | test: Top1 79.86  Top5 98.57  Loss 0.630
+[2022-08-03 23:15:28,100] trainer.py:106 INFO: epoch[15/300] train: Top1 65.67  Top5 94.28  Loss 1.096 | test: Top1 78.78  Top5 98.41  Loss 0.649
+[2022-08-03 23:16:02,472] trainer.py:106 INFO: epoch[16/300] train: Top1 64.52  Top5 93.67  Loss 1.132 | test: Top1 80.64  Top5 98.63  Loss 0.617
+[2022-08-03 23:16:36,683] trainer.py:106 INFO: epoch[17/300] train: Top1 66.06  Top5 94.42  Loss 1.090 | test: Top1 79.73  Top5 98.46  Loss 0.621
+[2022-08-03 23:17:11,125] trainer.py:106 INFO: epoch[18/300] train: Top1 65.39  Top5 94.08  Loss 1.108 | test: Top1 79.46  Top5 98.42  Loss 0.640
+[2022-08-03 23:17:45,632] trainer.py:106 INFO: epoch[19/300] train: Top1 64.91  Top5 93.82  Loss 1.131 | test: Top1 79.98  Top5 98.52  Loss 0.617
+[2022-08-03 23:18:19,900] trainer.py:106 INFO: epoch[20/300] train: Top1 65.59  Top5 94.12  Loss 1.111 | test: Top1 77.83  Top5 98.13  Loss 0.658
+[2022-08-03 23:18:54,107] trainer.py:106 INFO: epoch[21/300] train: Top1 66.25  Top5 94.22  Loss 1.091 | test: Top1 81.09  Top5 98.70  Loss 0.597
+[2022-08-03 23:19:28,618] trainer.py:106 INFO: epoch[22/300] train: Top1 66.12  Top5 94.24  Loss 1.092 | test: Top1 80.85  Top5 98.73  Loss 0.589
+[2022-08-03 23:20:03,065] trainer.py:106 INFO: epoch[23/300] train: Top1 67.06  Top5 94.46  Loss 1.066 | test: Top1 79.40  Top5 98.59  Loss 0.620
+[2022-08-03 23:20:37,233] trainer.py:106 INFO: epoch[24/300] train: Top1 65.36  Top5 93.55  Loss 1.084 | test: Top1 80.27  Top5 98.57  Loss 0.602
+[2022-08-03 23:21:11,793] trainer.py:106 INFO: epoch[25/300] train: Top1 67.80  Top5 94.95  Loss 1.056 | test: Top1 80.36  Top5 98.65  Loss 0.606
+[2022-08-03 23:21:46,124] trainer.py:106 INFO: epoch[26/300] train: Top1 66.49  Top5 94.25  Loss 1.080 | test: Top1 82.09  Top5 98.78  Loss 0.567
+[2022-08-03 23:22:20,231] trainer.py:106 INFO: epoch[27/300] train: Top1 67.86  Top5 94.68  Loss 1.042 | test: Top1 81.21  Top5 98.87  Loss 0.570
+[2022-08-03 23:22:54,721] trainer.py:106 INFO: epoch[28/300] train: Top1 67.32  Top5 94.57  Loss 1.065 | test: Top1 80.86  Top5 98.60  Loss 0.596
+[2022-08-03 23:23:28,840] trainer.py:106 INFO: epoch[29/300] train: Top1 67.27  Top5 94.43  Loss 1.052 | test: Top1 81.62  Top5 98.77  Loss 0.564
+[2022-08-03 23:24:03,347] trainer.py:106 INFO: epoch[30/300] train: Top1 67.23  Top5 94.40  Loss 1.070 | test: Top1 82.16  Top5 98.72  Loss 0.568
+[2022-08-03 23:24:37,655] trainer.py:106 INFO: epoch[31/300] train: Top1 67.85  Top5 94.75  Loss 1.054 | test: Top1 82.65  Top5 98.87  Loss 0.552
+[2022-08-03 23:25:11,890] trainer.py:106 INFO: epoch[32/300] train: Top1 68.58  Top5 95.04  Loss 1.027 | test: Top1 81.00  Top5 98.68  Loss 0.584
+[2022-08-03 23:25:46,439] trainer.py:106 INFO: epoch[33/300] train: Top1 66.62  Top5 94.15  Loss 1.080 | test: Top1 80.54  Top5 98.63  Loss 0.588
+[2022-08-03 23:26:20,716] trainer.py:106 INFO: epoch[34/300] train: Top1 68.15  Top5 94.62  Loss 1.039 | test: Top1 81.62  Top5 98.87  Loss 0.563
+[2022-08-03 23:26:55,013] trainer.py:106 INFO: epoch[35/300] train: Top1 67.77  Top5 94.59  Loss 1.058 | test: Top1 81.78  Top5 98.73  Loss 0.566
+[2022-08-03 23:27:29,296] trainer.py:106 INFO: epoch[36/300] train: Top1 69.51  Top5 95.01  Loss 1.017 | test: Top1 80.96  Top5 98.55  Loss 0.582
+[2022-08-03 23:28:03,652] trainer.py:106 INFO: epoch[37/300] train: Top1 68.19  Top5 94.84  Loss 1.052 | test: Top1 81.17  Top5 98.74  Loss 0.581
+[2022-08-03 23:28:37,744] trainer.py:106 INFO: epoch[38/300] train: Top1 69.15  Top5 95.00  Loss 0.990 | test: Top1 81.43  Top5 98.61  Loss 0.572
+[2022-08-03 23:29:12,389] trainer.py:106 INFO: epoch[39/300] train: Top1 67.10  Top5 94.45  Loss 1.070 | test: Top1 81.95  Top5 98.69  Loss 0.562
+[2022-08-03 23:29:46,529] trainer.py:106 INFO: epoch[40/300] train: Top1 68.76  Top5 94.85  Loss 1.019 | test: Top1 82.78  Top5 98.77  Loss 0.546
+[2022-08-03 23:30:20,825] trainer.py:106 INFO: epoch[41/300] train: Top1 68.79  Top5 94.79  Loss 1.025 | test: Top1 83.20  Top5 99.00  Loss 0.528
+[2022-08-03 23:30:54,552] trainer.py:106 INFO: epoch[42/300] train: Top1 68.91  Top5 95.08  Loss 1.027 | test: Top1 82.89  Top5 98.78  Loss 0.535
+[2022-08-03 23:31:27,952] trainer.py:106 INFO: epoch[43/300] train: Top1 69.21  Top5 94.74  Loss 0.999 | test: Top1 80.76  Top5 98.61  Loss 0.595
+[2022-08-03 23:32:01,912] trainer.py:106 INFO: epoch[44/300] train: Top1 69.75  Top5 95.14  Loss 0.982 | test: Top1 83.05  Top5 98.99  Loss 0.523
+[2022-08-03 23:32:36,084] trainer.py:106 INFO: epoch[45/300] train: Top1 69.42  Top5 94.92  Loss 0.991 | test: Top1 82.73  Top5 98.87  Loss 0.532
+[2022-08-03 23:33:10,370] trainer.py:106 INFO: epoch[46/300] train: Top1 69.22  Top5 95.12  Loss 1.022 | test: Top1 82.69  Top5 98.75  Loss 0.537
+[2022-08-03 23:33:44,860] trainer.py:106 INFO: epoch[47/300] train: Top1 68.49  Top5 94.60  Loss 1.028 | test: Top1 81.97  Top5 98.98  Loss 0.547
+[2022-08-03 23:34:19,118] trainer.py:106 INFO: epoch[48/300] train: Top1 69.08  Top5 94.66  Loss 1.012 | test: Top1 81.66  Top5 98.55  Loss 0.570
+[2022-08-03 23:34:53,322] trainer.py:106 INFO: epoch[49/300] train: Top1 69.15  Top5 94.76  Loss 1.007 | test: Top1 83.72  Top5 99.03  Loss 0.525
+[2022-08-03 23:35:27,681] trainer.py:106 INFO: epoch[50/300] train: Top1 69.35  Top5 95.02  Loss 1.010 | test: Top1 81.88  Top5 98.82  Loss 0.557
+[2022-08-03 23:36:02,220] trainer.py:106 INFO: epoch[51/300] train: Top1 67.17  Top5 94.11  Loss 1.052 | test: Top1 83.65  Top5 98.85  Loss 0.529
+[2022-08-03 23:36:36,533] trainer.py:106 INFO: epoch[52/300] train: Top1 68.95  Top5 94.73  Loss 1.015 | test: Top1 82.91  Top5 99.00  Loss 0.538
+[2022-08-03 23:37:10,800] trainer.py:106 INFO: epoch[53/300] train: Top1 70.06  Top5 95.39  Loss 0.998 | test: Top1 83.87  Top5 99.10  Loss 0.514
+[2022-08-03 23:37:45,097] trainer.py:106 INFO: epoch[54/300] train: Top1 68.29  Top5 94.51  Loss 1.017 | test: Top1 83.79  Top5 98.96  Loss 0.524
+[2022-08-03 23:38:19,272] trainer.py:106 INFO: epoch[55/300] train: Top1 69.50  Top5 95.15  Loss 1.003 | test: Top1 83.25  Top5 98.85  Loss 0.531
+[2022-08-03 23:38:53,753] trainer.py:106 INFO: epoch[56/300] train: Top1 69.44  Top5 95.08  Loss 1.007 | test: Top1 82.01  Top5 98.49  Loss 0.562
+[2022-08-03 23:39:27,928] trainer.py:106 INFO: epoch[57/300] train: Top1 70.17  Top5 95.15  Loss 0.987 | test: Top1 82.75  Top5 98.89  Loss 0.544
+[2022-08-03 23:40:02,080] trainer.py:106 INFO: epoch[58/300] train: Top1 69.05  Top5 95.04  Loss 1.006 | test: Top1 83.03  Top5 98.80  Loss 0.528
+[2022-08-03 23:40:36,222] trainer.py:106 INFO: epoch[59/300] train: Top1 70.81  Top5 95.39  Loss 0.978 | test: Top1 82.16  Top5 98.82  Loss 0.542
+[2022-08-03 23:41:10,688] trainer.py:106 INFO: epoch[60/300] train: Top1 68.45  Top5 94.48  Loss 1.022 | test: Top1 83.33  Top5 99.05  Loss 0.527
+[2022-08-03 23:41:45,223] trainer.py:106 INFO: epoch[61/300] train: Top1 67.92  Top5 94.52  Loss 1.055 | test: Top1 84.54  Top5 98.91  Loss 0.504
+[2022-08-03 23:42:19,765] trainer.py:106 INFO: epoch[62/300] train: Top1 68.72  Top5 94.68  Loss 1.026 | test: Top1 83.12  Top5 99.12  Loss 0.529
+[2022-08-03 23:42:54,005] trainer.py:106 INFO: epoch[63/300] train: Top1 70.52  Top5 95.27  Loss 0.975 | test: Top1 84.08  Top5 98.91  Loss 0.511
+[2022-08-03 23:43:28,300] trainer.py:106 INFO: epoch[64/300] train: Top1 69.53  Top5 94.92  Loss 1.006 | test: Top1 83.36  Top5 98.91  Loss 0.519
+[2022-08-03 23:44:02,802] trainer.py:106 INFO: epoch[65/300] train: Top1 69.67  Top5 95.09  Loss 1.010 | test: Top1 84.12  Top5 98.92  Loss 0.500
+[2022-08-03 23:44:36,899] trainer.py:106 INFO: epoch[66/300] train: Top1 71.01  Top5 95.46  Loss 0.958 | test: Top1 82.86  Top5 98.81  Loss 0.533
+[2022-08-03 23:45:11,361] trainer.py:106 INFO: epoch[67/300] train: Top1 69.37  Top5 94.83  Loss 1.000 | test: Top1 82.61  Top5 98.88  Loss 0.538
+[2022-08-03 23:45:45,800] trainer.py:106 INFO: epoch[68/300] train: Top1 69.96  Top5 95.10  Loss 0.991 | test: Top1 82.32  Top5 98.92  Loss 0.536
+[2022-08-03 23:46:20,076] trainer.py:106 INFO: epoch[69/300] train: Top1 69.45  Top5 94.91  Loss 1.009 | test: Top1 83.82  Top5 98.98  Loss 0.513
+[2022-08-03 23:46:54,621] trainer.py:106 INFO: epoch[70/300] train: Top1 69.23  Top5 94.95  Loss 1.012 | test: Top1 83.81  Top5 99.03  Loss 0.507
+[2022-08-03 23:47:28,940] trainer.py:106 INFO: epoch[71/300] train: Top1 69.65  Top5 94.91  Loss 0.999 | test: Top1 82.37  Top5 98.57  Loss 0.548
+[2022-08-03 23:48:03,311] trainer.py:106 INFO: epoch[72/300] train: Top1 70.03  Top5 95.13  Loss 0.992 | test: Top1 82.04  Top5 98.82  Loss 0.554
+[2022-08-03 23:48:37,818] trainer.py:106 INFO: epoch[73/300] train: Top1 69.33  Top5 94.93  Loss 1.025 | test: Top1 84.37  Top5 99.11  Loss 0.502
+[2022-08-03 23:49:12,360] trainer.py:106 INFO: epoch[74/300] train: Top1 69.58  Top5 94.80  Loss 0.997 | test: Top1 84.21  Top5 99.09  Loss 0.505
+[2022-08-03 23:49:46,899] trainer.py:106 INFO: epoch[75/300] train: Top1 69.52  Top5 94.94  Loss 1.009 | test: Top1 83.04  Top5 98.86  Loss 0.529
+[2022-08-03 23:50:21,398] trainer.py:106 INFO: epoch[76/300] train: Top1 68.49  Top5 94.43  Loss 1.017 | test: Top1 84.12  Top5 99.01  Loss 0.508
+[2022-08-03 23:50:55,210] trainer.py:106 INFO: epoch[77/300] train: Top1 69.68  Top5 95.05  Loss 0.995 | test: Top1 82.73  Top5 98.84  Loss 0.533
+[2022-08-03 23:51:29,047] trainer.py:106 INFO: epoch[78/300] train: Top1 69.62  Top5 94.85  Loss 0.992 | test: Top1 83.33  Top5 98.63  Loss 0.532
+[2022-08-03 23:52:02,476] trainer.py:106 INFO: epoch[79/300] train: Top1 69.83  Top5 94.83  Loss 0.982 | test: Top1 83.86  Top5 98.97  Loss 0.505
+[2022-08-03 23:52:36,774] trainer.py:106 INFO: epoch[80/300] train: Top1 69.96  Top5 94.99  Loss 0.986 | test: Top1 84.32  Top5 99.01  Loss 0.497
+[2022-08-03 23:53:11,211] trainer.py:106 INFO: epoch[81/300] train: Top1 70.82  Top5 95.09  Loss 0.959 | test: Top1 83.49  Top5 99.08  Loss 0.512
+[2022-08-03 23:53:45,391] trainer.py:106 INFO: epoch[82/300] train: Top1 70.01  Top5 95.12  Loss 0.995 | test: Top1 84.32  Top5 99.13  Loss 0.499
+[2022-08-03 23:54:19,745] trainer.py:106 INFO: epoch[83/300] train: Top1 69.54  Top5 94.79  Loss 0.981 | test: Top1 83.57  Top5 99.08  Loss 0.518
+[2022-08-03 23:54:54,028] trainer.py:106 INFO: epoch[84/300] train: Top1 70.13  Top5 95.03  Loss 0.982 | test: Top1 84.14  Top5 99.10  Loss 0.487
+[2022-08-03 23:55:28,299] trainer.py:106 INFO: epoch[85/300] train: Top1 70.65  Top5 95.48  Loss 0.973 | test: Top1 84.83  Top5 99.09  Loss 0.483
+[2022-08-03 23:56:02,755] trainer.py:106 INFO: epoch[86/300] train: Top1 70.21  Top5 95.11  Loss 0.980 | test: Top1 83.59  Top5 99.12  Loss 0.508
+[2022-08-03 23:56:37,351] trainer.py:106 INFO: epoch[87/300] train: Top1 68.49  Top5 94.52  Loss 1.022 | test: Top1 84.65  Top5 99.16  Loss 0.499
+[2022-08-03 23:57:11,522] trainer.py:106 INFO: epoch[88/300] train: Top1 69.64  Top5 94.85  Loss 0.996 | test: Top1 83.31  Top5 98.99  Loss 0.518
+[2022-08-03 23:57:45,818] trainer.py:106 INFO: epoch[89/300] train: Top1 70.90  Top5 95.23  Loss 0.960 | test: Top1 83.55  Top5 98.97  Loss 0.511
+[2022-08-03 23:58:19,954] trainer.py:106 INFO: epoch[90/300] train: Top1 70.29  Top5 94.87  Loss 0.969 | test: Top1 84.16  Top5 99.13  Loss 0.494
+[2022-08-03 23:58:54,521] trainer.py:106 INFO: epoch[91/300] train: Top1 70.38  Top5 95.15  Loss 0.992 | test: Top1 83.46  Top5 99.07  Loss 0.509
+[2022-08-03 23:59:28,993] trainer.py:106 INFO: epoch[92/300] train: Top1 70.44  Top5 95.18  Loss 0.985 | test: Top1 84.22  Top5 98.93  Loss 0.506
+[2022-08-04 00:00:03,247] trainer.py:106 INFO: epoch[93/300] train: Top1 70.40  Top5 95.25  Loss 0.975 | test: Top1 83.53  Top5 98.95  Loss 0.515
+[2022-08-04 00:00:37,733] trainer.py:106 INFO: epoch[94/300] train: Top1 70.14  Top5 95.31  Loss 0.992 | test: Top1 83.73  Top5 99.03  Loss 0.505
+[2022-08-04 00:01:12,004] trainer.py:106 INFO: epoch[95/300] train: Top1 70.61  Top5 95.25  Loss 0.976 | test: Top1 84.16  Top5 98.93  Loss 0.504
+[2022-08-04 00:01:46,417] trainer.py:106 INFO: epoch[96/300] train: Top1 70.07  Top5 94.90  Loss 0.986 | test: Top1 83.67  Top5 98.96  Loss 0.505
+[2022-08-04 00:02:21,062] trainer.py:106 INFO: epoch[97/300] train: Top1 70.85  Top5 95.40  Loss 0.994 | test: Top1 83.78  Top5 98.99  Loss 0.503
+[2022-08-04 00:02:55,378] trainer.py:106 INFO: epoch[98/300] train: Top1 69.70  Top5 94.83  Loss 0.985 | test: Top1 84.05  Top5 99.02  Loss 0.502
+[2022-08-04 00:03:29,511] trainer.py:106 INFO: epoch[99/300] train: Top1 70.62  Top5 95.18  Loss 0.972 | test: Top1 84.27  Top5 98.93  Loss 0.486
+[2022-08-04 00:04:04,086] trainer.py:106 INFO: epoch[100/300] train: Top1 69.69  Top5 94.87  Loss 1.001 | test: Top1 82.70  Top5 98.94  Loss 0.539
+[2022-08-04 00:04:38,493] trainer.py:106 INFO: epoch[101/300] train: Top1 70.45  Top5 95.26  Loss 0.989 | test: Top1 84.66  Top5 99.05  Loss 0.482
+[2022-08-04 00:05:12,740] trainer.py:106 INFO: epoch[102/300] train: Top1 70.54  Top5 94.87  Loss 0.960 | test: Top1 84.27  Top5 98.92  Loss 0.502
+[2022-08-04 00:05:47,118] trainer.py:106 INFO: epoch[103/300] train: Top1 71.08  Top5 95.45  Loss 0.956 | test: Top1 84.41  Top5 99.07  Loss 0.484
+[2022-08-04 00:06:21,447] trainer.py:106 INFO: epoch[104/300] train: Top1 70.25  Top5 94.91  Loss 0.985 | test: Top1 84.37  Top5 99.06  Loss 0.492
+[2022-08-04 00:06:55,961] trainer.py:106 INFO: epoch[105/300] train: Top1 69.20  Top5 94.60  Loss 1.005 | test: Top1 83.55  Top5 98.91  Loss 0.513
+[2022-08-04 00:07:30,198] trainer.py:106 INFO: epoch[106/300] train: Top1 70.82  Top5 95.37  Loss 0.969 | test: Top1 83.92  Top5 99.05  Loss 0.509
+[2022-08-04 00:08:04,704] trainer.py:106 INFO: epoch[107/300] train: Top1 70.64  Top5 95.33  Loss 0.975 | test: Top1 83.79  Top5 98.95  Loss 0.517
+[2022-08-04 00:08:38,754] trainer.py:106 INFO: epoch[108/300] train: Top1 70.81  Top5 95.31  Loss 0.963 | test: Top1 82.16  Top5 98.85  Loss 0.556
+[2022-08-04 00:09:13,031] trainer.py:106 INFO: epoch[109/300] train: Top1 70.24  Top5 95.02  Loss 0.980 | test: Top1 83.85  Top5 99.01  Loss 0.500
+[2022-08-04 00:09:47,396] trainer.py:106 INFO: epoch[110/300] train: Top1 69.59  Top5 94.89  Loss 0.990 | test: Top1 84.18  Top5 99.10  Loss 0.495
+[2022-08-04 00:10:21,905] trainer.py:106 INFO: epoch[111/300] train: Top1 70.47  Top5 95.07  Loss 0.981 | test: Top1 84.02  Top5 99.05  Loss 0.492
+[2022-08-04 00:10:55,873] trainer.py:106 INFO: epoch[112/300] train: Top1 70.36  Top5 95.06  Loss 0.984 | test: Top1 83.73  Top5 99.05  Loss 0.505
+[2022-08-04 00:11:29,928] trainer.py:106 INFO: epoch[113/300] train: Top1 70.49  Top5 95.09  Loss 0.985 | test: Top1 83.76  Top5 99.13  Loss 0.499
+[2022-08-04 00:12:03,289] trainer.py:106 INFO: epoch[114/300] train: Top1 70.56  Top5 95.36  Loss 0.967 | test: Top1 82.96  Top5 99.02  Loss 0.526
+[2022-08-04 00:12:37,573] trainer.py:106 INFO: epoch[115/300] train: Top1 72.24  Top5 95.72  Loss 0.928 | test: Top1 84.69  Top5 99.20  Loss 0.481
+[2022-08-04 00:13:12,015] trainer.py:106 INFO: epoch[116/300] train: Top1 71.26  Top5 95.43  Loss 0.979 | test: Top1 84.17  Top5 98.99  Loss 0.487
+[2022-08-04 00:13:46,459] trainer.py:106 INFO: epoch[117/300] train: Top1 69.95  Top5 95.17  Loss 1.004 | test: Top1 84.00  Top5 99.15  Loss 0.503
+[2022-08-04 00:14:20,934] trainer.py:106 INFO: epoch[118/300] train: Top1 70.77  Top5 95.25  Loss 0.977 | test: Top1 83.84  Top5 99.04  Loss 0.489
+[2022-08-04 00:14:55,408] trainer.py:106 INFO: epoch[119/300] train: Top1 69.91  Top5 95.00  Loss 0.985 | test: Top1 83.66  Top5 99.06  Loss 0.510
+[2022-08-04 00:15:29,923] trainer.py:106 INFO: epoch[120/300] train: Top1 69.65  Top5 94.82  Loss 0.989 | test: Top1 84.45  Top5 99.05  Loss 0.494
+[2022-08-04 00:16:04,086] trainer.py:106 INFO: epoch[121/300] train: Top1 71.49  Top5 95.66  Loss 0.950 | test: Top1 85.16  Top5 99.19  Loss 0.463
+[2022-08-04 00:16:38,547] trainer.py:106 INFO: epoch[122/300] train: Top1 71.82  Top5 95.72  Loss 0.958 | test: Top1 84.76  Top5 99.11  Loss 0.480
+[2022-08-04 00:17:12,879] trainer.py:106 INFO: epoch[123/300] train: Top1 71.19  Top5 95.61  Loss 0.966 | test: Top1 84.74  Top5 99.27  Loss 0.479
+[2022-08-04 00:17:47,334] trainer.py:106 INFO: epoch[124/300] train: Top1 70.57  Top5 95.19  Loss 0.982 | test: Top1 82.90  Top5 98.86  Loss 0.521
+[2022-08-04 00:18:21,759] trainer.py:106 INFO: epoch[125/300] train: Top1 71.08  Top5 95.26  Loss 0.969 | test: Top1 83.48  Top5 98.96  Loss 0.516
+[2022-08-04 00:18:56,076] trainer.py:106 INFO: epoch[126/300] train: Top1 70.29  Top5 94.99  Loss 0.977 | test: Top1 84.58  Top5 99.03  Loss 0.490
+[2022-08-04 00:19:30,777] trainer.py:106 INFO: epoch[127/300] train: Top1 70.31  Top5 95.14  Loss 0.995 | test: Top1 83.52  Top5 98.96  Loss 0.508
+[2022-08-04 00:20:05,001] trainer.py:106 INFO: epoch[128/300] train: Top1 71.32  Top5 95.40  Loss 0.956 | test: Top1 83.60  Top5 98.88  Loss 0.510
+[2022-08-04 00:20:39,563] trainer.py:106 INFO: epoch[129/300] train: Top1 69.74  Top5 94.86  Loss 0.991 | test: Top1 84.40  Top5 99.05  Loss 0.489
+[2022-08-04 00:21:14,033] trainer.py:106 INFO: epoch[130/300] train: Top1 70.95  Top5 95.18  Loss 0.963 | test: Top1 85.45  Top5 99.25  Loss 0.474
+[2022-08-04 00:21:48,337] trainer.py:106 INFO: epoch[131/300] train: Top1 70.03  Top5 94.72  Loss 0.973 | test: Top1 83.78  Top5 99.12  Loss 0.502
+[2022-08-04 00:22:22,918] trainer.py:106 INFO: epoch[132/300] train: Top1 71.91  Top5 95.70  Loss 0.956 | test: Top1 84.24  Top5 98.92  Loss 0.497
+[2022-08-04 00:22:57,252] trainer.py:106 INFO: epoch[133/300] train: Top1 69.39  Top5 94.70  Loss 0.987 | test: Top1 84.65  Top5 99.01  Loss 0.484
+[2022-08-04 00:23:31,717] trainer.py:106 INFO: epoch[134/300] train: Top1 69.57  Top5 94.91  Loss 0.991 | test: Top1 84.15  Top5 99.03  Loss 0.494
+[2022-08-04 00:24:06,187] trainer.py:106 INFO: epoch[135/300] train: Top1 71.17  Top5 95.41  Loss 0.965 | test: Top1 83.94  Top5 99.07  Loss 0.501
+[2022-08-04 00:24:40,567] trainer.py:106 INFO: epoch[136/300] train: Top1 71.40  Top5 95.46  Loss 0.966 | test: Top1 84.44  Top5 99.07  Loss 0.491
+[2022-08-04 00:25:15,206] trainer.py:106 INFO: epoch[137/300] train: Top1 70.59  Top5 95.38  Loss 0.989 | test: Top1 84.28  Top5 98.93  Loss 0.502
+[2022-08-04 00:25:49,509] trainer.py:106 INFO: epoch[138/300] train: Top1 72.00  Top5 95.73  Loss 0.953 | test: Top1 84.78  Top5 99.09  Loss 0.473
+[2022-08-04 00:26:23,657] trainer.py:106 INFO: epoch[139/300] train: Top1 70.07  Top5 95.03  Loss 0.981 | test: Top1 84.04  Top5 99.04  Loss 0.498
+[2022-08-04 00:26:58,125] trainer.py:106 INFO: epoch[140/300] train: Top1 70.80  Top5 95.21  Loss 0.971 | test: Top1 83.86  Top5 98.97  Loss 0.503
+[2022-08-04 00:27:32,483] trainer.py:106 INFO: epoch[141/300] train: Top1 70.24  Top5 95.00  Loss 0.996 | test: Top1 83.54  Top5 98.95  Loss 0.521
+[2022-08-04 00:28:06,645] trainer.py:106 INFO: epoch[142/300] train: Top1 71.48  Top5 95.34  Loss 0.936 | test: Top1 84.21  Top5 99.14  Loss 0.493
+[2022-08-04 00:28:40,941] trainer.py:106 INFO: epoch[143/300] train: Top1 71.40  Top5 95.36  Loss 0.946 | test: Top1 85.28  Top5 99.15  Loss 0.461
+[2022-08-04 00:29:15,280] trainer.py:106 INFO: epoch[144/300] train: Top1 71.10  Top5 95.38  Loss 0.958 | test: Top1 83.99  Top5 98.86  Loss 0.497
+[2022-08-04 00:29:49,722] trainer.py:106 INFO: epoch[145/300] train: Top1 70.28  Top5 95.11  Loss 0.985 | test: Top1 84.12  Top5 99.05  Loss 0.500
+[2022-08-04 00:30:23,702] trainer.py:106 INFO: epoch[146/300] train: Top1 71.35  Top5 95.33  Loss 0.942 | test: Top1 84.46  Top5 99.19  Loss 0.471
+[2022-08-04 00:30:57,585] trainer.py:106 INFO: epoch[147/300] train: Top1 71.27  Top5 95.43  Loss 0.950 | test: Top1 83.00  Top5 99.07  Loss 0.519
+[2022-08-04 00:31:31,670] trainer.py:106 INFO: epoch[148/300] train: Top1 70.73  Top5 95.27  Loss 0.974 | test: Top1 84.10  Top5 99.02  Loss 0.501
+[2022-08-04 00:32:05,169] trainer.py:106 INFO: epoch[149/300] train: Top1 70.53  Top5 95.06  Loss 0.977 | test: Top1 85.39  Top5 99.03  Loss 0.480
+[2022-08-04 00:32:39,674] trainer.py:106 INFO: epoch[150/300] train: Top1 71.17  Top5 95.43  Loss 0.965 | test: Top1 83.53  Top5 98.91  Loss 0.512
+[2022-08-04 00:33:13,998] trainer.py:106 INFO: epoch[151/300] train: Top1 71.28  Top5 95.49  Loss 0.963 | test: Top1 84.96  Top5 99.23  Loss 0.479
+[2022-08-04 00:33:47,995] trainer.py:106 INFO: epoch[152/300] train: Top1 72.28  Top5 95.48  Loss 0.926 | test: Top1 84.53  Top5 99.00  Loss 0.481
+[2022-08-04 00:34:22,495] trainer.py:106 INFO: epoch[153/300] train: Top1 70.79  Top5 95.37  Loss 0.984 | test: Top1 82.67  Top5 98.86  Loss 0.539
+[2022-08-04 00:34:56,744] trainer.py:106 INFO: epoch[154/300] train: Top1 71.31  Top5 95.62  Loss 0.955 | test: Top1 82.59  Top5 98.96  Loss 0.533
+[2022-08-04 00:35:31,223] trainer.py:106 INFO: epoch[155/300] train: Top1 71.80  Top5 95.84  Loss 0.958 | test: Top1 84.12  Top5 99.06  Loss 0.488
+[2022-08-04 00:36:05,789] trainer.py:106 INFO: epoch[156/300] train: Top1 70.05  Top5 94.89  Loss 0.980 | test: Top1 83.74  Top5 99.12  Loss 0.488
+[2022-08-04 00:36:40,132] trainer.py:106 INFO: epoch[157/300] train: Top1 70.33  Top5 95.29  Loss 0.979 | test: Top1 84.54  Top5 99.02  Loss 0.495
+[2022-08-04 00:37:14,472] trainer.py:106 INFO: epoch[158/300] train: Top1 72.03  Top5 95.54  Loss 0.942 | test: Top1 84.37  Top5 99.09  Loss 0.493
+[2022-08-04 00:37:48,738] trainer.py:106 INFO: epoch[159/300] train: Top1 70.96  Top5 95.53  Loss 0.952 | test: Top1 85.29  Top5 99.17  Loss 0.460
+[2022-08-04 00:38:22,760] trainer.py:106 INFO: epoch[160/300] train: Top1 70.86  Top5 95.32  Loss 0.960 | test: Top1 84.45  Top5 98.98  Loss 0.487
+[2022-08-04 00:38:57,334] trainer.py:106 INFO: epoch[161/300] train: Top1 70.64  Top5 95.39  Loss 0.982 | test: Top1 83.14  Top5 98.75  Loss 0.520
+[2022-08-04 00:39:31,648] trainer.py:106 INFO: epoch[162/300] train: Top1 71.80  Top5 95.41  Loss 0.943 | test: Top1 82.67  Top5 98.57  Loss 0.543
+[2022-08-04 00:40:06,072] trainer.py:106 INFO: epoch[163/300] train: Top1 71.30  Top5 95.57  Loss 0.960 | test: Top1 85.62  Top5 99.18  Loss 0.469
+[2022-08-04 00:40:40,343] trainer.py:106 INFO: epoch[164/300] train: Top1 71.37  Top5 95.27  Loss 0.937 | test: Top1 84.32  Top5 98.89  Loss 0.489
+[2022-08-04 00:41:14,780] trainer.py:106 INFO: epoch[165/300] train: Top1 69.98  Top5 94.94  Loss 0.989 | test: Top1 83.42  Top5 98.92  Loss 0.519
+[2022-08-04 00:41:49,172] trainer.py:106 INFO: epoch[166/300] train: Top1 71.53  Top5 95.46  Loss 0.964 | test: Top1 84.62  Top5 99.20  Loss 0.493
+[2022-08-04 00:42:23,545] trainer.py:106 INFO: epoch[167/300] train: Top1 71.87  Top5 95.74  Loss 0.941 | test: Top1 85.07  Top5 99.07  Loss 0.477
+[2022-08-04 00:42:57,589] trainer.py:106 INFO: epoch[168/300] train: Top1 71.57  Top5 95.35  Loss 0.953 | test: Top1 83.74  Top5 99.03  Loss 0.506
+[2022-08-04 00:43:31,824] trainer.py:106 INFO: epoch[169/300] train: Top1 70.99  Top5 95.15  Loss 0.966 | test: Top1 84.62  Top5 99.14  Loss 0.485
+[2022-08-04 00:44:06,164] trainer.py:106 INFO: epoch[170/300] train: Top1 71.14  Top5 95.17  Loss 0.961 | test: Top1 84.92  Top5 98.95  Loss 0.472
+[2022-08-04 00:44:40,439] trainer.py:106 INFO: epoch[171/300] train: Top1 70.63  Top5 95.12  Loss 0.960 | test: Top1 84.02  Top5 99.13  Loss 0.492
+[2022-08-04 00:45:14,881] trainer.py:106 INFO: epoch[172/300] train: Top1 71.60  Top5 95.46  Loss 0.957 | test: Top1 85.09  Top5 99.21  Loss 0.476
+[2022-08-04 00:45:49,372] trainer.py:106 INFO: epoch[173/300] train: Top1 70.67  Top5 95.31  Loss 0.977 | test: Top1 84.81  Top5 99.09  Loss 0.485
+[2022-08-04 00:46:23,739] trainer.py:106 INFO: epoch[174/300] train: Top1 71.60  Top5 95.57  Loss 0.948 | test: Top1 84.23  Top5 99.13  Loss 0.487
+[2022-08-04 00:46:58,040] trainer.py:106 INFO: epoch[175/300] train: Top1 72.37  Top5 95.72  Loss 0.927 | test: Top1 83.37  Top5 98.69  Loss 0.523
+[2022-08-04 00:47:32,261] trainer.py:106 INFO: epoch[176/300] train: Top1 71.12  Top5 95.24  Loss 0.954 | test: Top1 84.47  Top5 99.10  Loss 0.487
+[2022-08-04 00:48:06,636] trainer.py:106 INFO: epoch[177/300] train: Top1 70.38  Top5 94.93  Loss 0.965 | test: Top1 83.87  Top5 98.97  Loss 0.502
+[2022-08-04 00:48:40,902] trainer.py:106 INFO: epoch[178/300] train: Top1 72.04  Top5 95.67  Loss 0.951 | test: Top1 83.19  Top5 98.87  Loss 0.516
+[2022-08-04 00:49:15,245] trainer.py:106 INFO: epoch[179/300] train: Top1 71.67  Top5 95.42  Loss 0.941 | test: Top1 83.44  Top5 99.01  Loss 0.496
+[2022-08-04 00:49:49,531] trainer.py:106 INFO: epoch[180/300] train: Top1 72.19  Top5 95.75  Loss 0.948 | test: Top1 84.26  Top5 98.86  Loss 0.497
+[2022-08-04 00:50:23,866] trainer.py:106 INFO: epoch[181/300] train: Top1 71.60  Top5 95.56  Loss 0.949 | test: Top1 84.34  Top5 98.99  Loss 0.500
+[2022-08-04 00:50:57,854] trainer.py:106 INFO: epoch[182/300] train: Top1 71.56  Top5 95.49  Loss 0.954 | test: Top1 84.63  Top5 99.04  Loss 0.474
+[2022-08-04 00:51:31,773] trainer.py:106 INFO: epoch[183/300] train: Top1 72.49  Top5 95.70  Loss 0.935 | test: Top1 84.51  Top5 99.12  Loss 0.479
+[2022-08-04 00:52:05,466] trainer.py:106 INFO: epoch[184/300] train: Top1 70.70  Top5 95.23  Loss 0.974 | test: Top1 84.49  Top5 99.12  Loss 0.488
+[2022-08-04 00:52:39,405] trainer.py:106 INFO: epoch[185/300] train: Top1 72.59  Top5 95.64  Loss 0.906 | test: Top1 84.43  Top5 98.98  Loss 0.487
+[2022-08-04 00:53:13,780] trainer.py:106 INFO: epoch[186/300] train: Top1 70.85  Top5 95.01  Loss 0.961 | test: Top1 84.15  Top5 99.02  Loss 0.488
+[2022-08-04 00:53:48,013] trainer.py:106 INFO: epoch[187/300] train: Top1 71.41  Top5 95.24  Loss 0.948 | test: Top1 85.05  Top5 99.14  Loss 0.479
+[2022-08-04 00:54:22,381] trainer.py:106 INFO: epoch[188/300] train: Top1 71.60  Top5 95.39  Loss 0.959 | test: Top1 85.52  Top5 99.13  Loss 0.458
+[2022-08-04 00:54:56,596] trainer.py:106 INFO: epoch[189/300] train: Top1 71.99  Top5 95.79  Loss 0.949 | test: Top1 83.94  Top5 98.91  Loss 0.503
+[2022-08-04 00:55:30,850] trainer.py:106 INFO: epoch[190/300] train: Top1 72.12  Top5 95.70  Loss 0.931 | test: Top1 84.49  Top5 99.02  Loss 0.483
+[2022-08-04 00:56:05,341] trainer.py:106 INFO: epoch[191/300] train: Top1 71.20  Top5 95.36  Loss 0.957 | test: Top1 82.93  Top5 98.92  Loss 0.524
+[2022-08-04 00:56:39,578] trainer.py:106 INFO: epoch[192/300] train: Top1 70.87  Top5 94.90  Loss 0.942 | test: Top1 84.43  Top5 99.01  Loss 0.478
+[2022-08-04 00:57:13,880] trainer.py:106 INFO: epoch[193/300] train: Top1 70.91  Top5 95.24  Loss 0.970 | test: Top1 84.44  Top5 99.06  Loss 0.481
+[2022-08-04 00:57:48,022] trainer.py:106 INFO: epoch[194/300] train: Top1 71.45  Top5 95.54  Loss 0.946 | test: Top1 83.90  Top5 98.60  Loss 0.508
+[2022-08-04 00:58:22,510] trainer.py:106 INFO: epoch[195/300] train: Top1 69.99  Top5 95.04  Loss 1.000 | test: Top1 83.58  Top5 99.10  Loss 0.509
+[2022-08-04 00:58:56,881] trainer.py:106 INFO: epoch[196/300] train: Top1 72.06  Top5 95.71  Loss 0.935 | test: Top1 85.47  Top5 99.19  Loss 0.465
+[2022-08-04 00:59:30,940] trainer.py:106 INFO: epoch[197/300] train: Top1 71.77  Top5 95.53  Loss 0.939 | test: Top1 85.08  Top5 99.26  Loss 0.471
+[2022-08-04 01:00:05,161] trainer.py:106 INFO: epoch[198/300] train: Top1 70.73  Top5 95.22  Loss 0.960 | test: Top1 84.68  Top5 99.09  Loss 0.492
+[2022-08-04 01:00:39,757] trainer.py:106 INFO: epoch[199/300] train: Top1 70.67  Top5 95.22  Loss 0.978 | test: Top1 84.70  Top5 99.20  Loss 0.489
+[2022-08-04 01:01:14,292] trainer.py:106 INFO: epoch[200/300] train: Top1 69.47  Top5 94.56  Loss 0.998 | test: Top1 84.96  Top5 99.20  Loss 0.482
+[2022-08-04 01:01:48,728] trainer.py:106 INFO: epoch[201/300] train: Top1 74.02  Top5 95.95  Loss 0.879 | test: Top1 86.98  Top5 99.35  Loss 0.415
+[2022-08-04 01:02:22,992] trainer.py:106 INFO: epoch[202/300] train: Top1 75.08  Top5 95.93  Loss 0.839 | test: Top1 86.83  Top5 99.40  Loss 0.405
+[2022-08-04 01:02:57,335] trainer.py:106 INFO: epoch[203/300] train: Top1 75.47  Top5 96.11  Loss 0.844 | test: Top1 86.97  Top5 99.34  Loss 0.407
+[2022-08-04 01:03:31,884] trainer.py:106 INFO: epoch[204/300] train: Top1 74.15  Top5 95.80  Loss 0.875 | test: Top1 87.20  Top5 99.46  Loss 0.407
+[2022-08-04 01:04:06,131] trainer.py:106 INFO: epoch[205/300] train: Top1 76.52  Top5 96.73  Loss 0.856 | test: Top1 87.53  Top5 99.51  Loss 0.392
+[2022-08-04 01:04:40,700] trainer.py:106 INFO: epoch[206/300] train: Top1 75.69  Top5 96.16  Loss 0.842 | test: Top1 87.51  Top5 99.36  Loss 0.400
+[2022-08-04 01:05:15,003] trainer.py:106 INFO: epoch[207/300] train: Top1 75.12  Top5 96.09  Loss 0.849 | test: Top1 87.15  Top5 99.49  Loss 0.394
+[2022-08-04 01:05:49,439] trainer.py:106 INFO: epoch[208/300] train: Top1 74.50  Top5 95.97  Loss 0.863 | test: Top1 87.63  Top5 99.45  Loss 0.389
+[2022-08-04 01:06:23,828] trainer.py:106 INFO: epoch[209/300] train: Top1 75.61  Top5 96.26  Loss 0.836 | test: Top1 87.50  Top5 99.39  Loss 0.392
+[2022-08-04 01:06:58,221] trainer.py:106 INFO: epoch[210/300] train: Top1 75.72  Top5 96.29  Loss 0.833 | test: Top1 87.65  Top5 99.40  Loss 0.393
+[2022-08-04 01:07:32,556] trainer.py:106 INFO: epoch[211/300] train: Top1 75.64  Top5 96.13  Loss 0.839 | test: Top1 87.96  Top5 99.47  Loss 0.384
+[2022-08-04 01:08:07,018] trainer.py:106 INFO: epoch[212/300] train: Top1 75.63  Top5 96.29  Loss 0.844 | test: Top1 87.74  Top5 99.49  Loss 0.376
+[2022-08-04 01:08:41,407] trainer.py:106 INFO: epoch[213/300] train: Top1 75.16  Top5 96.03  Loss 0.859 | test: Top1 87.50  Top5 99.34  Loss 0.391
+[2022-08-04 01:09:15,673] trainer.py:106 INFO: epoch[214/300] train: Top1 76.25  Top5 96.39  Loss 0.816 | test: Top1 87.66  Top5 99.39  Loss 0.377
+[2022-08-04 01:09:50,046] trainer.py:106 INFO: epoch[215/300] train: Top1 76.10  Top5 96.27  Loss 0.829 | test: Top1 87.53  Top5 99.38  Loss 0.391
+[2022-08-04 01:10:24,385] trainer.py:106 INFO: epoch[216/300] train: Top1 77.08  Top5 96.75  Loss 0.838 | test: Top1 87.50  Top5 99.39  Loss 0.386
+[2022-08-04 01:10:58,400] trainer.py:106 INFO: epoch[217/300] train: Top1 75.86  Top5 96.14  Loss 0.830 | test: Top1 87.78  Top5 99.49  Loss 0.381
+[2022-08-04 01:11:32,390] trainer.py:106 INFO: epoch[218/300] train: Top1 75.24  Top5 95.99  Loss 0.844 | test: Top1 87.85  Top5 99.43  Loss 0.381
+[2022-08-04 01:12:05,885] trainer.py:106 INFO: epoch[219/300] train: Top1 75.59  Top5 96.14  Loss 0.841 | test: Top1 87.56  Top5 99.29  Loss 0.397
+[2022-08-04 01:12:40,508] trainer.py:106 INFO: epoch[220/300] train: Top1 75.85  Top5 96.52  Loss 0.853 | test: Top1 88.00  Top5 99.37  Loss 0.387
+[2022-08-04 01:13:14,841] trainer.py:106 INFO: epoch[221/300] train: Top1 76.00  Top5 96.31  Loss 0.831 | test: Top1 87.51  Top5 99.37  Loss 0.385
+[2022-08-04 01:13:49,251] trainer.py:106 INFO: epoch[222/300] train: Top1 76.05  Top5 96.48  Loss 0.838 | test: Top1 88.04  Top5 99.43  Loss 0.378
+[2022-08-04 01:14:23,593] trainer.py:106 INFO: epoch[223/300] train: Top1 75.97  Top5 96.16  Loss 0.818 | test: Top1 87.65  Top5 99.47  Loss 0.376
+[2022-08-04 01:14:57,851] trainer.py:106 INFO: epoch[224/300] train: Top1 75.57  Top5 96.30  Loss 0.841 | test: Top1 86.72  Top5 99.38  Loss 0.410
+[2022-08-04 01:15:32,370] trainer.py:106 INFO: epoch[225/300] train: Top1 76.53  Top5 96.56  Loss 0.839 | test: Top1 88.20  Top5 99.47  Loss 0.366
+[2022-08-04 01:16:06,636] trainer.py:106 INFO: epoch[226/300] train: Top1 76.65  Top5 96.33  Loss 0.812 | test: Top1 88.04  Top5 99.46  Loss 0.379
+[2022-08-04 01:16:40,924] trainer.py:106 INFO: epoch[227/300] train: Top1 76.17  Top5 96.41  Loss 0.829 | test: Top1 88.12  Top5 99.31  Loss 0.380
+[2022-08-04 01:17:15,340] trainer.py:106 INFO: epoch[228/300] train: Top1 76.37  Top5 96.52  Loss 0.830 | test: Top1 87.93  Top5 99.46  Loss 0.380
+[2022-08-04 01:17:49,824] trainer.py:106 INFO: epoch[229/300] train: Top1 75.59  Top5 96.30  Loss 0.849 | test: Top1 88.55  Top5 99.54  Loss 0.364
+[2022-08-04 01:18:24,377] trainer.py:106 INFO: epoch[230/300] train: Top1 75.52  Top5 96.22  Loss 0.846 | test: Top1 88.03  Top5 99.44  Loss 0.373
+[2022-08-04 01:18:58,651] trainer.py:106 INFO: epoch[231/300] train: Top1 75.68  Top5 95.99  Loss 0.821 | test: Top1 88.18  Top5 99.52  Loss 0.374
+[2022-08-04 01:19:32,891] trainer.py:106 INFO: epoch[232/300] train: Top1 77.07  Top5 96.48  Loss 0.799 | test: Top1 87.67  Top5 99.44  Loss 0.377
+[2022-08-04 01:20:07,284] trainer.py:106 INFO: epoch[233/300] train: Top1 75.43  Top5 95.99  Loss 0.848 | test: Top1 87.04  Top5 99.31  Loss 0.406
+[2022-08-04 01:20:41,718] trainer.py:106 INFO: epoch[234/300] train: Top1 76.28  Top5 96.36  Loss 0.837 | test: Top1 87.68  Top5 99.38  Loss 0.386
+[2022-08-04 01:21:16,033] trainer.py:106 INFO: epoch[235/300] train: Top1 76.42  Top5 96.24  Loss 0.801 | test: Top1 86.95  Top5 99.31  Loss 0.400
+[2022-08-04 01:21:50,176] trainer.py:106 INFO: epoch[236/300] train: Top1 76.69  Top5 96.42  Loss 0.805 | test: Top1 88.16  Top5 99.53  Loss 0.374
+[2022-08-04 01:22:24,560] trainer.py:106 INFO: epoch[237/300] train: Top1 76.63  Top5 96.29  Loss 0.813 | test: Top1 87.72  Top5 99.37  Loss 0.382
+[2022-08-04 01:22:58,729] trainer.py:106 INFO: epoch[238/300] train: Top1 76.20  Top5 96.43  Loss 0.816 | test: Top1 87.81  Top5 99.44  Loss 0.376
+[2022-08-04 01:23:33,171] trainer.py:106 INFO: epoch[239/300] train: Top1 75.97  Top5 96.01  Loss 0.822 | test: Top1 88.04  Top5 99.32  Loss 0.378
+[2022-08-04 01:24:07,398] trainer.py:106 INFO: epoch[240/300] train: Top1 76.20  Top5 96.45  Loss 0.836 | test: Top1 88.37  Top5 99.49  Loss 0.370
+[2022-08-04 01:24:41,620] trainer.py:106 INFO: epoch[241/300] train: Top1 77.46  Top5 96.56  Loss 0.783 | test: Top1 87.99  Top5 99.45  Loss 0.375
+[2022-08-04 01:25:16,039] trainer.py:106 INFO: epoch[242/300] train: Top1 76.83  Top5 96.52  Loss 0.828 | test: Top1 87.48  Top5 99.35  Loss 0.391
+[2022-08-04 01:25:50,360] trainer.py:106 INFO: epoch[243/300] train: Top1 76.07  Top5 96.40  Loss 0.823 | test: Top1 87.81  Top5 99.50  Loss 0.381
+[2022-08-04 01:26:24,584] trainer.py:106 INFO: epoch[244/300] train: Top1 76.86  Top5 96.48  Loss 0.798 | test: Top1 87.62  Top5 99.35  Loss 0.388
+[2022-08-04 01:26:59,115] trainer.py:106 INFO: epoch[245/300] train: Top1 75.96  Top5 96.23  Loss 0.825 | test: Top1 88.44  Top5 99.48  Loss 0.369
+[2022-08-04 01:27:33,525] trainer.py:106 INFO: epoch[246/300] train: Top1 77.08  Top5 96.60  Loss 0.807 | test: Top1 88.47  Top5 99.42  Loss 0.373
+[2022-08-04 01:28:07,788] trainer.py:106 INFO: epoch[247/300] train: Top1 76.80  Top5 96.43  Loss 0.802 | test: Top1 87.36  Top5 99.29  Loss 0.396
+[2022-08-04 01:28:41,845] trainer.py:106 INFO: epoch[248/300] train: Top1 77.86  Top5 96.76  Loss 0.772 | test: Top1 87.76  Top5 99.54  Loss 0.376
+[2022-08-04 01:29:16,273] trainer.py:106 INFO: epoch[249/300] train: Top1 76.62  Top5 96.47  Loss 0.830 | test: Top1 87.73  Top5 99.39  Loss 0.385
+[2022-08-04 01:29:50,975] trainer.py:106 INFO: epoch[250/300] train: Top1 74.93  Top5 96.06  Loss 0.872 | test: Top1 87.55  Top5 99.41  Loss 0.391
+[2022-08-04 01:30:25,374] trainer.py:106 INFO: epoch[251/300] train: Top1 77.09  Top5 96.53  Loss 0.811 | test: Top1 88.81  Top5 99.46  Loss 0.358
+[2022-08-04 01:30:59,451] trainer.py:106 INFO: epoch[252/300] train: Top1 77.99  Top5 96.73  Loss 0.778 | test: Top1 88.64  Top5 99.59  Loss 0.351
+[2022-08-04 01:31:33,199] trainer.py:106 INFO: epoch[253/300] train: Top1 78.71  Top5 96.88  Loss 0.765 | test: Top1 88.60  Top5 99.52  Loss 0.354
+[2022-08-04 01:32:06,726] trainer.py:106 INFO: epoch[254/300] train: Top1 78.51  Top5 97.02  Loss 0.774 | test: Top1 88.94  Top5 99.55  Loss 0.349
+[2022-08-04 01:32:41,255] trainer.py:106 INFO: epoch[255/300] train: Top1 77.49  Top5 96.49  Loss 0.792 | test: Top1 88.73  Top5 99.50  Loss 0.355
+[2022-08-04 01:33:15,641] trainer.py:106 INFO: epoch[256/300] train: Top1 78.33  Top5 96.81  Loss 0.776 | test: Top1 88.82  Top5 99.54  Loss 0.350
+[2022-08-04 01:33:49,860] trainer.py:106 INFO: epoch[257/300] train: Top1 78.43  Top5 96.82  Loss 0.756 | test: Top1 88.81  Top5 99.51  Loss 0.353
+[2022-08-04 01:34:24,212] trainer.py:106 INFO: epoch[258/300] train: Top1 77.61  Top5 96.42  Loss 0.780 | test: Top1 88.98  Top5 99.52  Loss 0.349
+[2022-08-04 01:34:58,280] trainer.py:106 INFO: epoch[259/300] train: Top1 78.13  Top5 96.67  Loss 0.776 | test: Top1 88.86  Top5 99.49  Loss 0.353
+[2022-08-04 01:35:32,645] trainer.py:106 INFO: epoch[260/300] train: Top1 79.15  Top5 96.93  Loss 0.756 | test: Top1 89.19  Top5 99.55  Loss 0.345
+[2022-08-04 01:36:06,920] trainer.py:106 INFO: epoch[261/300] train: Top1 77.94  Top5 96.68  Loss 0.792 | test: Top1 89.20  Top5 99.52  Loss 0.346
+[2022-08-04 01:36:41,329] trainer.py:106 INFO: epoch[262/300] train: Top1 79.22  Top5 96.97  Loss 0.753 | test: Top1 88.99  Top5 99.47  Loss 0.346
+[2022-08-04 01:37:15,655] trainer.py:106 INFO: epoch[263/300] train: Top1 78.91  Top5 96.86  Loss 0.761 | test: Top1 88.99  Top5 99.53  Loss 0.344
+[2022-08-04 01:37:49,948] trainer.py:106 INFO: epoch[264/300] train: Top1 77.80  Top5 96.71  Loss 0.787 | test: Top1 89.16  Top5 99.60  Loss 0.344
+[2022-08-04 01:38:24,439] trainer.py:106 INFO: epoch[265/300] train: Top1 77.37  Top5 96.68  Loss 0.793 | test: Top1 88.95  Top5 99.52  Loss 0.346
+[2022-08-04 01:38:58,805] trainer.py:106 INFO: epoch[266/300] train: Top1 77.62  Top5 96.49  Loss 0.784 | test: Top1 88.93  Top5 99.49  Loss 0.350
+[2022-08-04 01:39:33,021] trainer.py:106 INFO: epoch[267/300] train: Top1 78.50  Top5 96.59  Loss 0.755 | test: Top1 88.84  Top5 99.47  Loss 0.354
+[2022-08-04 01:40:07,430] trainer.py:106 INFO: epoch[268/300] train: Top1 77.92  Top5 96.53  Loss 0.786 | test: Top1 89.18  Top5 99.53  Loss 0.346
+[2022-08-04 01:40:41,766] trainer.py:106 INFO: epoch[269/300] train: Top1 79.23  Top5 96.90  Loss 0.758 | test: Top1 89.08  Top5 99.50  Loss 0.346
+[2022-08-04 01:41:16,333] trainer.py:106 INFO: epoch[270/300] train: Top1 77.59  Top5 96.52  Loss 0.794 | test: Top1 88.99  Top5 99.52  Loss 0.349
+[2022-08-04 01:41:50,825] trainer.py:106 INFO: epoch[271/300] train: Top1 78.01  Top5 96.68  Loss 0.796 | test: Top1 89.06  Top5 99.54  Loss 0.345
+[2022-08-04 01:42:25,194] trainer.py:106 INFO: epoch[272/300] train: Top1 77.82  Top5 96.63  Loss 0.772 | test: Top1 89.09  Top5 99.55  Loss 0.347
+[2022-08-04 01:42:59,772] trainer.py:106 INFO: epoch[273/300] train: Top1 78.28  Top5 96.88  Loss 0.809 | test: Top1 89.05  Top5 99.54  Loss 0.342
+[2022-08-04 01:43:34,100] trainer.py:106 INFO: epoch[274/300] train: Top1 78.07  Top5 96.72  Loss 0.777 | test: Top1 88.87  Top5 99.52  Loss 0.348
+[2022-08-04 01:44:08,210] trainer.py:106 INFO: epoch[275/300] train: Top1 78.57  Top5 96.71  Loss 0.755 | test: Top1 89.28  Top5 99.51  Loss 0.343
+[2022-08-04 01:44:42,862] trainer.py:106 INFO: epoch[276/300] train: Top1 77.13  Top5 96.58  Loss 0.795 | test: Top1 89.08  Top5 99.54  Loss 0.347
+[2022-08-04 01:45:17,123] trainer.py:106 INFO: epoch[277/300] train: Top1 78.18  Top5 96.59  Loss 0.772 | test: Top1 89.18  Top5 99.57  Loss 0.343
+[2022-08-04 01:45:51,503] trainer.py:106 INFO: epoch[278/300] train: Top1 78.55  Top5 96.98  Loss 0.779 | test: Top1 89.37  Top5 99.62  Loss 0.336
+[2022-08-04 01:46:25,945] trainer.py:106 INFO: epoch[279/300] train: Top1 78.28  Top5 96.92  Loss 0.787 | test: Top1 89.00  Top5 99.51  Loss 0.344
+[2022-08-04 01:47:00,053] trainer.py:106 INFO: epoch[280/300] train: Top1 78.54  Top5 96.50  Loss 0.759 | test: Top1 89.10  Top5 99.54  Loss 0.336
+[2022-08-04 01:47:34,391] trainer.py:106 INFO: epoch[281/300] train: Top1 78.29  Top5 96.68  Loss 0.765 | test: Top1 89.35  Top5 99.54  Loss 0.341
+[2022-08-04 01:48:08,782] trainer.py:106 INFO: epoch[282/300] train: Top1 79.00  Top5 97.20  Loss 0.766 | test: Top1 89.08  Top5 99.55  Loss 0.340
+[2022-08-04 01:48:42,904] trainer.py:106 INFO: epoch[283/300] train: Top1 79.26  Top5 96.78  Loss 0.753 | test: Top1 89.47  Top5 99.57  Loss 0.333
+[2022-08-04 01:49:17,444] trainer.py:106 INFO: epoch[284/300] train: Top1 78.08  Top5 96.93  Loss 0.793 | test: Top1 89.06  Top5 99.55  Loss 0.342
+[2022-08-04 01:49:51,820] trainer.py:106 INFO: epoch[285/300] train: Top1 77.85  Top5 96.82  Loss 0.784 | test: Top1 88.89  Top5 99.53  Loss 0.347
+[2022-08-04 01:50:26,155] trainer.py:106 INFO: epoch[286/300] train: Top1 79.04  Top5 97.08  Loss 0.764 | test: Top1 89.49  Top5 99.52  Loss 0.339
+[2022-08-04 01:50:59,968] trainer.py:106 INFO: epoch[287/300] train: Top1 80.43  Top5 97.44  Loss 0.717 | test: Top1 89.27  Top5 99.55  Loss 0.338
+[2022-08-04 01:51:33,886] trainer.py:106 INFO: epoch[288/300] train: Top1 78.68  Top5 96.85  Loss 0.779 | test: Top1 89.05  Top5 99.58  Loss 0.337
+[2022-08-04 01:52:07,225] trainer.py:106 INFO: epoch[289/300] train: Top1 78.89  Top5 96.90  Loss 0.756 | test: Top1 89.20  Top5 99.51  Loss 0.346
+[2022-08-04 01:52:41,508] trainer.py:106 INFO: epoch[290/300] train: Top1 78.31  Top5 96.53  Loss 0.761 | test: Top1 89.04  Top5 99.54  Loss 0.342
+[2022-08-04 01:53:15,681] trainer.py:106 INFO: epoch[291/300] train: Top1 78.44  Top5 96.76  Loss 0.774 | test: Top1 89.25  Top5 99.56  Loss 0.336
+[2022-08-04 01:53:50,185] trainer.py:106 INFO: epoch[292/300] train: Top1 78.76  Top5 96.82  Loss 0.762 | test: Top1 89.17  Top5 99.48  Loss 0.339
+[2022-08-04 01:54:24,496] trainer.py:106 INFO: epoch[293/300] train: Top1 77.96  Top5 96.72  Loss 0.778 | test: Top1 89.07  Top5 99.48  Loss 0.342
+[2022-08-04 01:54:59,000] trainer.py:106 INFO: epoch[294/300] train: Top1 77.50  Top5 96.48  Loss 0.796 | test: Top1 89.23  Top5 99.56  Loss 0.339
+[2022-08-04 01:55:33,407] trainer.py:106 INFO: epoch[295/300] train: Top1 78.49  Top5 96.76  Loss 0.766 | test: Top1 89.02  Top5 99.52  Loss 0.350
+[2022-08-04 01:56:07,765] trainer.py:106 INFO: epoch[296/300] train: Top1 79.20  Top5 96.78  Loss 0.739 | test: Top1 89.15  Top5 99.60  Loss 0.342
+[2022-08-04 01:56:42,206] trainer.py:106 INFO: epoch[297/300] train: Top1 78.30  Top5 96.43  Loss 0.750 | test: Top1 89.16  Top5 99.48  Loss 0.344
+[2022-08-04 01:57:16,487] trainer.py:106 INFO: epoch[298/300] train: Top1 79.31  Top5 97.08  Loss 0.754 | test: Top1 89.25  Top5 99.58  Loss 0.335
+[2022-08-04 01:57:50,787] trainer.py:106 INFO: epoch[299/300] train: Top1 79.22  Top5 96.73  Loss 0.747 | test: Top1 88.92  Top5 99.50  Loss 0.343
+[2022-08-04 01:58:25,046] trainer.py:106 INFO: epoch[300/300] train: Top1 79.55  Top5 97.07  Loss 0.754 | test: Top1 89.10  Top5 99.50  Loss 0.348
+[2022-08-04 01:58:25,054] try_try.py:57 INFO: 
+(Repeat 1) Best, last acc: 89.49 89.10
+[2022-08-04 21:06:39,331] settings.py:68 INFO: logging.config.dictConfig
+[2022-08-04 21:09:56,305] settings.py:68 INFO: logging.config.dictConfig
+[2022-08-04 21:18:36,910] settings.py:68 INFO: logging.config.dictConfig
+[2022-08-04 21:18:49,534] settings.py:68 INFO: logging.config.dictConfig
+[2022-08-04 21:19:36,695] settings.py:68 INFO: logging.config.dictConfig
+[2022-08-05 14:15:24,815] condense.py:23 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'num_workers': 8, 'batch_size': 64, 'epochs': 300, 'decode_type': 'single', 'mixup': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 14:16:32,856] condense.py:23 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'num_workers': 8, 'batch_size': 64, 'epochs': 300, 'decode_type': 'single', 'mixup': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 14:18:09,371] condense.py:23 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'num_workers': 8, 'batch_size': 64, 'epochs': 300, 'decode_type': 'single', 'mixup': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 14:18:21,427] condense.py:41 INFO: Using cpu device.
+[2022-08-05 14:18:21,428] condense.py:42 INFO: Using 8 dataloader workers every process
+[2022-08-05 14:18:21,428] condense.py:43 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 14:21:43,172] condense.py:25 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'num_workers': 8, 'batch_size': 64, 'epochs': 300, 'decode_type': 'single', 'mixup': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 14:21:55,457] condense.py:43 INFO: Using cpu device.
+[2022-08-05 14:21:55,457] condense.py:44 INFO: Using 8 dataloader workers every process
+[2022-08-05 14:21:55,457] condense.py:45 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 14:39:24,923] condense.py:25 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'num_workers': 8, 'batch_size': 64, 'ipc': 10, 'epochs': 300, 'decode_type': 'single', 'mixup': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 14:39:37,009] condense.py:43 INFO: Using cpu device.
+[2022-08-05 14:39:37,009] condense.py:44 INFO: Using 8 dataloader workers every process
+[2022-08-05 14:39:37,010] condense.py:45 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 14:41:07,956] condense.py:25 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'num_workers': 8, 'batch_size': 64, 'ipc': 10, 'epochs': 300, 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 14:41:20,030] condense.py:43 INFO: Using cpu device.
+[2022-08-05 14:41:20,030] condense.py:44 INFO: Using 8 dataloader workers every process
+[2022-08-05 14:41:20,030] condense.py:45 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 14:42:04,323] condense.py:25 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'num_workers': 8, 'batch_size': 64, 'ipc': 10, 'epochs': 300, 'init': 'random', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 14:42:16,530] condense.py:43 INFO: Using cpu device.
+[2022-08-05 14:42:16,530] condense.py:44 INFO: Using 8 dataloader workers every process
+[2022-08-05 14:42:16,530] condense.py:45 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 14:43:20,125] condense.py:25 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'num_workers': 8, 'batch_size': 64, 'ipc': 10, 'epochs': 300, 'init': 'mix', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 14:43:32,474] condense.py:43 INFO: Using cpu device.
+[2022-08-05 14:43:32,474] condense.py:44 INFO: Using 8 dataloader workers every process
+[2022-08-05 14:43:32,474] condense.py:45 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 14:54:37,093] condense.py:26 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'num_workers': 8, 'batch_size': 64, 'ipc': 10, 'epochs': 300, 'init': 'mix', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 14:54:47,702] condense.py:44 INFO: Using cpu device.
+[2022-08-05 14:54:47,702] condense.py:45 INFO: Using 8 dataloader workers every process
+[2022-08-05 14:54:47,702] condense.py:46 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 14:56:16,659] condense.py:26 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'aug_type': 'color_crop_cutout', 'num_workers': 8, 'batch_size': 64, 'batch_syn_max': 128, 'ipc': 10, 'epochs': 300, 'init': 'mix', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 14:56:27,028] condense.py:44 INFO: Using cpu device.
+[2022-08-05 14:56:27,028] condense.py:45 INFO: Using 8 dataloader workers every process
+[2022-08-05 14:56:27,028] condense.py:46 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 14:57:15,682] condense.py:26 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'aug_type': 'color_crop_cutout', 'num_workers': 8, 'batch_size': 64, 'batch_syn_max': 128, 'ipc': 10, 'epochs': 300, 'init': 'mix', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mixup_net': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 14:57:26,042] condense.py:44 INFO: Using cpu device.
+[2022-08-05 14:57:26,042] condense.py:45 INFO: Using 8 dataloader workers every process
+[2022-08-05 14:57:26,042] condense.py:46 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 15:03:01,276] condense.py:26 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'aug_type': 'color_crop_cutout', 'num_workers': 8, 'batch_size': 64, 'batch_syn_max': 128, 'ipc': 10, 'epochs': 300, 'init': 'mix', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mixup_net': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 15:03:11,566] condense.py:44 INFO: Using cpu device.
+[2022-08-05 15:03:11,566] condense.py:45 INFO: Using 8 dataloader workers every process
+[2022-08-05 15:03:11,566] condense.py:46 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 15:04:58,523] condense.py:26 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'aug_type': 'color_crop_cutout', 'num_workers': 8, 'batch_size': 64, 'batch_syn_max': 128, 'ipc': 10, 'epochs': 300, 'init': 'random', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mixup_net': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 15:05:08,843] condense.py:44 INFO: Using cpu device.
+[2022-08-05 15:05:08,843] condense.py:45 INFO: Using 8 dataloader workers every process
+[2022-08-05 15:05:08,843] condense.py:46 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 19:14:54,727] condense.py:26 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'aug_type': 'color_crop_cutout', 'num_workers': 8, 'batch_size': 64, 'batch_syn_max': 128, 'ipc': 10, 'epochs': 300, 'init': 'mix', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mixup_net': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 19:15:07,763] condense.py:44 INFO: Using cpu device.
+[2022-08-05 19:15:07,763] condense.py:45 INFO: Using 8 dataloader workers every process
+[2022-08-05 19:15:07,764] condense.py:46 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 19:15:07,822] condense.py:66 INFO: Creating model convnet, model parameters: 0.32M
+[2022-08-05 19:15:07,829] trainer.py:293 INFO: Start training with DSA and cut mixup
+[2022-08-05 19:15:20,783] trainer.py:302 INFO: epoch[1/300] train: Top1 12.25  Top5 53.50  Loss 2.326 | test: Top1 17.78  Top5 66.78  Loss 2.210
+[2022-08-05 19:15:33,370] trainer.py:302 INFO: epoch[2/300] train: Top1 15.50  Top5 67.00  Loss 2.223 | test: Top1 21.73  Top5 68.35  Loss 2.226
+[2022-08-05 19:15:46,084] trainer.py:302 INFO: epoch[3/300] train: Top1 22.00  Top5 65.25  Loss 2.287 | test: Top1 22.98  Top5 66.48  Loss 2.337
+[2022-08-05 19:15:59,008] trainer.py:302 INFO: epoch[4/300] train: Top1 22.75  Top5 62.25  Loss 2.222 | test: Top1 26.17  Top5 74.32  Loss 2.123
+[2022-08-05 19:16:12,130] trainer.py:302 INFO: epoch[5/300] train: Top1 31.75  Top5 74.75  Loss 1.997 | test: Top1 29.82  Top5 75.55  Loss 2.027
+[2022-08-05 19:17:30,017] condense.py:26 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'aug_type': 'color_crop_cutout', 'num_workers': 8, 'batch_size': 64, 'batch_syn_max': 128, 'ipc': 10, 'epochs': 300, 'init': 'mix', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mixup_net': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 19:17:42,081] condense.py:44 INFO: Using cpu device.
+[2022-08-05 19:17:42,081] condense.py:45 INFO: Using 8 dataloader workers every process
+[2022-08-05 19:17:42,082] condense.py:46 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 19:17:42,133] condense.py:66 INFO: Creating model convnet, model parameters: 0.32M
+[2022-08-05 19:17:42,141] trainer.py:293 INFO: Start training with DSA and cut mixup
+[2022-08-05 19:19:14,803] condense.py:26 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'aug_type': 'color_crop_cutout', 'num_workers': 8, 'batch_size': 64, 'batch_syn_max': 128, 'ipc': 10, 'epochs': 300, 'init': 'mix', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mixup_net': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 19:19:26,934] condense.py:44 INFO: Using cpu device.
+[2022-08-05 19:19:26,934] condense.py:45 INFO: Using 8 dataloader workers every process
+[2022-08-05 19:19:26,934] condense.py:46 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 19:30:59,645] condense.py:26 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'aug_type': 'color_crop_cutout', 'num_workers': 8, 'batch_size': 64, 'batch_syn_max': 128, 'ipc': 10, 'epochs': 300, 'init': 'mix', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mixup_net': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 19:31:11,995] condense.py:44 INFO: Using cpu device.
+[2022-08-05 19:31:11,995] condense.py:45 INFO: Using 8 dataloader workers every process
+[2022-08-05 19:31:11,996] condense.py:46 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 19:31:12,047] condense.py:65 INFO: Creating model convnet, model parameters: 0.32M
+[2022-08-05 19:31:12,053] trainer.py:293 INFO: Start training with DSA and cut mixup
+[2022-08-05 19:31:24,703] trainer.py:302 INFO: epoch[1/300] train: Top1 12.25  Top5 53.50  Loss 2.326 | test: Top1 17.78  Top5 66.78  Loss 2.210
+[2022-08-05 19:32:14,231] condense.py:26 INFO: {'dataset': 'cifar10', 'model': 'convnet', 'data_dir': '../Efficient-Dataset-Condensation/data', 'save_dir': './result', 'save_ckpt': True, 'augment': False, 'pretrained': False, 'plotter': True, 'load_memory': True, 'dsa': True, 'dsa_strategy': 'color_crop_flip_scale_rotate', 'aug_type': 'color_crop_cutout', 'num_workers': 8, 'batch_size': 64, 'batch_syn_max': 128, 'ipc': 10, 'epochs': 300, 'init': 'mix', 'decode_type': 'single', 'factor': 2, 'mixup': 'cut', 'mixup_net': 'cut', 'mix_p': 0.5, 'beta': 1.0, 'seed': 0, 'device_ids': '0,1', 'num_classes': 10, 'size': 32, 'channel': 3, 'model_params': {'convnet': {'net_norm': 'instance', 'net_depth': 3, 'net_width': 128, 'net_act': 'relu', 'net_pooling': 'avgpooling'}, 'densenet_cifar': {'nclass': 10}, 'resnet': {'depth': 10, 'net_norm': 'instance'}, 'resnetap': {'depth': 10, 'width': 1.0, 'net_norm': 'instance', 'nch': 3}}, 'learning': {'loss': 'ce', 'optim': 'sgd', 'scheduler': 'multisteplr', 'sgd': {'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005}}}
+[2022-08-05 19:32:26,345] condense.py:44 INFO: Using cpu device.
+[2022-08-05 19:32:26,346] condense.py:45 INFO: Using 8 dataloader workers every process
+[2022-08-05 19:32:26,346] condense.py:46 INFO: Using CIFAR10 50000 images for training, 10000 images for validation.
+[2022-08-05 19:32:26,398] condense.py:65 INFO: Creating model convnet, model parameters: 0.32M
+[2022-08-05 19:32:26,405] trainer.py:293 INFO: Start training with DSA and cut mixup
+[2022-08-05 19:32:39,013] trainer.py:302 INFO: epoch[1/300] train: Top1 12.25  Top5 53.50  Loss 2.326 | test: Top1 17.78  Top5 66.78  Loss 2.210
+[2022-08-05 19:32:51,869] trainer.py:302 INFO: epoch[2/300] train: Top1 15.50  Top5 67.00  Loss 2.223 | test: Top1 21.73  Top5 68.35  Loss 2.226
+[2022-08-05 19:33:04,993] trainer.py:302 INFO: epoch[3/300] train: Top1 22.00  Top5 65.25  Loss 2.287 | test: Top1 22.98  Top5 66.48  Loss 2.337
+[2022-08-05 19:33:17,623] trainer.py:302 INFO: epoch[4/300] train: Top1 22.75  Top5 62.25  Loss 2.222 | test: Top1 26.17  Top5 74.32  Loss 2.123
+[2022-08-05 19:33:30,435] trainer.py:302 INFO: epoch[5/300] train: Top1 31.75  Top5 74.75  Loss 1.997 | test: Top1 29.82  Top5 75.55  Loss 2.027
+[2022-08-05 19:33:43,250] trainer.py:302 INFO: epoch[6/300] train: Top1 29.25  Top5 75.25  Loss 2.088 | test: Top1 28.35  Top5 73.41  Loss 2.137
+[2022-08-05 19:33:55,955] trainer.py:302 INFO: epoch[7/300] train: Top1 33.00  Top5 80.50  Loss 1.979 | test: Top1 26.62  Top5 77.14  Loss 2.062
+[2022-08-05 19:34:08,681] trainer.py:302 INFO: epoch[8/300] train: Top1 36.00  Top5 84.25  Loss 1.846 | test: Top1 28.98  Top5 79.13  Loss 2.024
+[2022-08-05 19:34:21,435] trainer.py:302 INFO: epoch[9/300] train: Top1 29.25  Top5 78.75  Loss 2.089 | test: Top1 30.85  Top5 79.10  Loss 2.007
+[2022-08-05 19:34:34,351] trainer.py:302 INFO: epoch[10/300] train: Top1 38.50  Top5 80.75  Loss 1.774 | test: Top1 34.17  Top5 80.03  Loss 1.922
+[2022-08-05 19:34:34,481] utils.py:148 INFO: Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+[2022-08-05 19:34:34,482] utils.py:160 INFO: NumExpr defaulting to 8 threads.
+[2022-08-05 19:34:48,451] trainer.py:302 INFO: epoch[11/300] train: Top1 39.25  Top5 82.75  Loss 1.764 | test: Top1 34.27  Top5 82.43  Loss 1.899
+[2022-08-05 19:35:01,385] trainer.py:302 INFO: epoch[12/300] train: Top1 40.00  Top5 85.00  Loss 1.776 | test: Top1 32.28  Top5 78.75  Loss 2.009
+[2022-08-05 19:35:14,321] trainer.py:302 INFO: epoch[13/300] train: Top1 34.00  Top5 81.75  Loss 1.967 | test: Top1 32.15  Top5 78.75  Loss 2.003
+[2022-08-05 19:35:27,437] trainer.py:302 INFO: epoch[14/300] train: Top1 39.75  Top5 84.75  Loss 1.790 | test: Top1 33.21  Top5 80.43  Loss 1.936
+[2022-08-05 19:35:40,323] trainer.py:302 INFO: epoch[15/300] train: Top1 44.50  Top5 87.25  Loss 1.640 | test: Top1 32.17  Top5 79.01  Loss 2.048
+[2022-08-05 19:35:53,348] trainer.py:302 INFO: epoch[16/300] train: Top1 49.00  Top5 89.75  Loss 1.483 | test: Top1 31.45  Top5 80.60  Loss 2.058
+[2022-08-05 19:36:06,380] trainer.py:302 INFO: epoch[17/300] train: Top1 41.25  Top5 86.00  Loss 1.899 | test: Top1 30.37  Top5 77.08  Loss 2.170
+[2022-08-05 19:36:19,187] trainer.py:302 INFO: epoch[18/300] train: Top1 40.75  Top5 82.25  Loss 1.755 | test: Top1 30.95  Top5 80.68  Loss 2.079
+[2022-08-05 19:36:32,083] trainer.py:302 INFO: epoch[19/300] train: Top1 46.50  Top5 90.50  Loss 1.712 | test: Top1 35.37  Top5 81.95  Loss 1.922
+[2022-08-05 19:36:45,187] trainer.py:302 INFO: epoch[20/300] train: Top1 59.25  Top5 93.25  Loss 1.286 | test: Top1 37.40  Top5 84.57  Loss 1.814
+[2022-08-05 19:36:58,633] trainer.py:302 INFO: epoch[21/300] train: Top1 44.00  Top5 86.75  Loss 1.679 | test: Top1 39.22  Top5 83.42  Loss 1.823
+[2022-08-05 19:37:11,433] trainer.py:302 INFO: epoch[22/300] train: Top1 48.75  Top5 87.50  Loss 1.560 | test: Top1 38.01  Top5 84.40  Loss 1.819
+[2022-08-05 19:37:24,285] trainer.py:302 INFO: epoch[23/300] train: Top1 43.25  Top5 80.75  Loss 1.708 | test: Top1 37.36  Top5 84.01  Loss 1.829
+[2022-08-05 19:37:37,193] trainer.py:302 INFO: epoch[24/300] train: Top1 54.25  Top5 91.50  Loss 1.415 | test: Top1 37.23  Top5 84.48  Loss 1.829
+[2022-08-05 19:37:50,635] trainer.py:302 INFO: epoch[25/300] train: Top1 54.75  Top5 93.25  Loss 1.324 | test: Top1 38.19  Top5 84.23  Loss 1.813
+[2022-08-05 19:38:03,548] trainer.py:302 INFO: epoch[26/300] train: Top1 59.25  Top5 90.50  Loss 1.275 | test: Top1 38.04  Top5 84.99  Loss 1.821
+[2022-08-05 19:38:16,530] trainer.py:302 INFO: epoch[27/300] train: Top1 42.50  Top5 86.25  Loss 1.880 | test: Top1 33.56  Top5 83.30  Loss 1.923
+[2022-08-05 19:38:29,653] trainer.py:302 INFO: epoch[28/300] train: Top1 56.50  Top5 92.25  Loss 1.428 | test: Top1 35.27  Top5 82.24  Loss 1.945
+[2022-08-05 19:38:42,574] trainer.py:302 INFO: epoch[29/300] train: Top1 47.75  Top5 84.25  Loss 1.616 | test: Top1 37.38  Top5 83.48  Loss 1.876
+[2022-08-05 19:38:55,599] trainer.py:302 INFO: epoch[30/300] train: Top1 45.50  Top5 87.75  Loss 1.703 | test: Top1 34.40  Top5 82.92  Loss 1.946
+[2022-08-05 19:39:08,883] trainer.py:302 INFO: epoch[31/300] train: Top1 51.25  Top5 92.25  Loss 1.468 | test: Top1 37.64  Top5 82.12  Loss 1.938
+[2022-08-05 19:39:21,905] trainer.py:302 INFO: epoch[32/300] train: Top1 58.25  Top5 91.25  Loss 1.214 | test: Top1 37.37  Top5 85.59  Loss 1.813
+[2022-08-05 19:39:34,791] trainer.py:302 INFO: epoch[33/300] train: Top1 51.00  Top5 90.50  Loss 1.477 | test: Top1 38.08  Top5 85.00  Loss 1.822
+[2022-08-05 19:39:47,649] trainer.py:302 INFO: epoch[34/300] train: Top1 52.25  Top5 89.75  Loss 1.609 | test: Top1 36.80  Top5 82.43  Loss 1.921
+[2022-08-05 19:40:00,505] trainer.py:302 INFO: epoch[35/300] train: Top1 62.00  Top5 91.50  Loss 1.285 | test: Top1 37.19  Top5 85.02  Loss 1.855
+[2022-08-05 19:40:13,365] trainer.py:302 INFO: epoch[36/300] train: Top1 66.25  Top5 95.25  Loss 1.016 | test: Top1 39.93  Top5 85.16  Loss 1.798
+[2022-08-05 19:40:26,237] trainer.py:302 INFO: epoch[37/300] train: Top1 53.00  Top5 88.50  Loss 1.545 | test: Top1 39.25  Top5 86.08  Loss 1.783
+[2022-08-05 19:40:39,103] trainer.py:302 INFO: epoch[38/300] train: Top1 56.25  Top5 90.50  Loss 1.427 | test: Top1 40.25  Top5 86.08  Loss 1.745
+[2022-08-05 19:40:52,001] trainer.py:302 INFO: epoch[39/300] train: Top1 61.50  Top5 93.25  Loss 1.231 | test: Top1 39.20  Top5 85.67  Loss 1.796
+[2022-08-05 19:41:04,896] trainer.py:302 INFO: epoch[40/300] train: Top1 63.00  Top5 94.75  Loss 1.142 | test: Top1 39.50  Top5 86.31  Loss 1.790
+[2022-08-05 19:41:18,139] trainer.py:302 INFO: epoch[41/300] train: Top1 61.00  Top5 91.50  Loss 1.069 | test: Top1 40.76  Top5 83.98  Loss 1.793
+[2022-08-05 19:41:31,014] trainer.py:302 INFO: epoch[42/300] train: Top1 61.25  Top5 93.00  Loss 1.177 | test: Top1 40.28  Top5 85.79  Loss 1.803
+[2022-08-05 19:41:43,871] trainer.py:302 INFO: epoch[43/300] train: Top1 54.75  Top5 85.00  Loss 1.416 | test: Top1 40.88  Top5 85.89  Loss 1.750
+[2022-08-05 19:41:56,791] trainer.py:302 INFO: epoch[44/300] train: Top1 61.25  Top5 89.50  Loss 1.308 | test: Top1 39.54  Top5 84.78  Loss 1.802
+[2022-08-05 19:42:09,675] trainer.py:302 INFO: epoch[45/300] train: Top1 49.00  Top5 87.00  Loss 1.633 | test: Top1 38.55  Top5 84.21  Loss 1.838
+[2022-08-05 19:42:22,525] trainer.py:302 INFO: epoch[46/300] train: Top1 61.50  Top5 89.50  Loss 1.155 | test: Top1 39.15  Top5 86.09  Loss 1.791
+[2022-08-05 19:42:35,409] trainer.py:302 INFO: epoch[47/300] train: Top1 61.50  Top5 90.75  Loss 1.283 | test: Top1 40.36  Top5 86.18  Loss 1.772
+[2022-08-05 19:42:48,285] trainer.py:302 INFO: epoch[48/300] train: Top1 70.25  Top5 94.50  Loss 1.031 | test: Top1 42.07  Top5 87.14  Loss 1.711
+[2022-08-05 19:43:01,167] trainer.py:302 INFO: epoch[49/300] train: Top1 67.25  Top5 96.00  Loss 1.144 | test: Top1 41.45  Top5 87.19  Loss 1.754
+[2022-08-05 19:43:14,044] trainer.py:302 INFO: epoch[50/300] train: Top1 71.50  Top5 93.50  Loss 1.057 | test: Top1 42.19  Top5 85.50  Loss 1.737
+[2022-08-05 19:43:27,331] trainer.py:302 INFO: epoch[51/300] train: Top1 55.00  Top5 84.50  Loss 1.310 | test: Top1 40.83  Top5 86.99  Loss 1.771
+[2022-08-05 19:43:40,259] trainer.py:302 INFO: epoch[52/300] train: Top1 55.00  Top5 91.75  Loss 1.559 | test: Top1 41.28  Top5 86.54  Loss 1.745
+[2022-08-05 19:43:53,146] trainer.py:302 INFO: epoch[53/300] train: Top1 62.25  Top5 87.50  Loss 1.227 | test: Top1 39.66  Top5 85.01  Loss 1.827
+[2022-08-05 19:44:06,032] trainer.py:302 INFO: epoch[54/300] train: Top1 76.25  Top5 95.50  Loss 0.930 | test: Top1 39.63  Top5 86.37  Loss 1.795
+[2022-08-05 19:44:18,931] trainer.py:302 INFO: epoch[55/300] train: Top1 71.50  Top5 94.00  Loss 1.009 | test: Top1 40.21  Top5 86.39  Loss 1.777
+[2022-08-05 19:44:31,802] trainer.py:302 INFO: epoch[56/300] train: Top1 76.00  Top5 96.25  Loss 0.844 | test: Top1 41.55  Top5 85.07  Loss 1.776
+[2022-08-05 19:44:44,707] trainer.py:302 INFO: epoch[57/300] train: Top1 73.00  Top5 97.00  Loss 0.974 | test: Top1 41.73  Top5 87.21  Loss 1.768
+[2022-08-05 19:44:57,598] trainer.py:302 INFO: epoch[58/300] train: Top1 68.50  Top5 94.50  Loss 1.105 | test: Top1 41.59  Top5 86.81  Loss 1.742
+[2022-08-05 19:45:10,471] trainer.py:302 INFO: epoch[59/300] train: Top1 64.25  Top5 92.25  Loss 1.284 | test: Top1 41.97  Top5 87.17  Loss 1.754
+[2022-08-05 19:45:23,366] trainer.py:302 INFO: epoch[60/300] train: Top1 50.25  Top5 82.00  Loss 1.527 | test: Top1 41.51  Top5 86.72  Loss 1.730
+[2022-08-05 19:45:36,639] trainer.py:302 INFO: epoch[61/300] train: Top1 67.50  Top5 92.75  Loss 1.204 | test: Top1 41.43  Top5 86.19  Loss 1.769
+[2022-08-05 19:45:49,517] trainer.py:302 INFO: epoch[62/300] train: Top1 83.00  Top5 99.00  Loss 0.560 | test: Top1 41.81  Top5 86.94  Loss 1.742
+[2022-08-05 19:46:02,405] trainer.py:302 INFO: epoch[63/300] train: Top1 63.75  Top5 90.50  Loss 1.340 | test: Top1 40.60  Top5 86.52  Loss 1.818
+[2022-08-05 19:46:15,300] trainer.py:302 INFO: epoch[64/300] train: Top1 71.00  Top5 93.50  Loss 1.007 | test: Top1 41.21  Top5 84.94  Loss 1.803
+[2022-08-05 19:46:28,210] trainer.py:302 INFO: epoch[65/300] train: Top1 87.75  Top5 98.25  Loss 0.539 | test: Top1 42.62  Top5 87.20  Loss 1.751
+[2022-08-05 19:46:41,114] trainer.py:302 INFO: epoch[66/300] train: Top1 71.50  Top5 94.25  Loss 0.968 | test: Top1 41.89  Top5 85.61  Loss 1.800
+[2022-08-05 19:46:53,997] trainer.py:302 INFO: epoch[67/300] train: Top1 82.00  Top5 98.50  Loss 0.779 | test: Top1 41.73  Top5 86.90  Loss 1.769
+[2022-08-05 19:47:06,886] trainer.py:302 INFO: epoch[68/300] train: Top1 67.50  Top5 93.25  Loss 1.213 | test: Top1 41.83  Top5 86.94  Loss 1.753
+[2022-08-05 19:47:19,783] trainer.py:302 INFO: epoch[69/300] train: Top1 83.00  Top5 97.75  Loss 0.733 | test: Top1 41.99  Top5 86.44  Loss 1.769
+[2022-08-05 19:47:32,684] trainer.py:302 INFO: epoch[70/300] train: Top1 57.75  Top5 92.00  Loss 1.424 | test: Top1 39.74  Top5 86.98  Loss 1.798
+[2022-08-05 19:47:45,937] trainer.py:302 INFO: epoch[71/300] train: Top1 45.00  Top5 82.00  Loss 1.692 | test: Top1 40.36  Top5 84.76  Loss 1.823
+[2022-08-05 19:47:58,819] trainer.py:302 INFO: epoch[72/300] train: Top1 73.25  Top5 94.25  Loss 0.857 | test: Top1 40.79  Top5 86.57  Loss 1.756
+[2022-08-05 19:48:11,694] trainer.py:302 INFO: epoch[73/300] train: Top1 73.50  Top5 95.75  Loss 1.002 | test: Top1 41.81  Top5 86.47  Loss 1.777
+[2022-08-05 19:48:24,566] trainer.py:302 INFO: epoch[74/300] train: Top1 74.00  Top5 97.50  Loss 0.801 | test: Top1 43.30  Top5 87.80  Loss 1.724
+[2022-08-05 19:48:37,433] trainer.py:302 INFO: epoch[75/300] train: Top1 85.75  Top5 99.00  Loss 0.591 | test: Top1 43.22  Top5 88.06  Loss 1.722
+[2022-08-05 19:48:50,386] trainer.py:302 INFO: epoch[76/300] train: Top1 67.00  Top5 93.00  Loss 1.141 | test: Top1 42.91  Top5 86.63  Loss 1.753
+[2022-08-05 19:49:03,254] trainer.py:302 INFO: epoch[77/300] train: Top1 70.00  Top5 94.00  Loss 0.997 | test: Top1 42.57  Top5 86.92  Loss 1.744
+[2022-08-05 19:49:16,137] trainer.py:302 INFO: epoch[78/300] train: Top1 76.75  Top5 96.50  Loss 0.864 | test: Top1 41.74  Top5 86.12  Loss 1.781
+[2022-08-05 19:49:28,990] trainer.py:302 INFO: epoch[79/300] train: Top1 65.50  Top5 91.75  Loss 1.190 | test: Top1 42.21  Top5 86.07  Loss 1.760
+[2022-08-05 19:49:41,869] trainer.py:302 INFO: epoch[80/300] train: Top1 66.00  Top5 92.75  Loss 1.097 | test: Top1 43.29  Top5 86.66  Loss 1.714
+[2022-08-05 19:49:55,193] trainer.py:302 INFO: epoch[81/300] train: Top1 85.50  Top5 98.25  Loss 0.594 | test: Top1 42.79  Top5 87.35  Loss 1.728
+[2022-08-05 19:50:08,058] trainer.py:302 INFO: epoch[82/300] train: Top1 88.50  Top5 99.75  Loss 0.521 | test: Top1 44.19  Top5 87.88  Loss 1.688
+[2022-08-05 19:50:20,945] trainer.py:302 INFO: epoch[83/300] train: Top1 84.00  Top5 97.00  Loss 0.613 | test: Top1 44.19  Top5 88.39  Loss 1.682
+[2022-08-05 19:50:33,811] trainer.py:302 INFO: epoch[84/300] train: Top1 74.25  Top5 93.00  Loss 0.714 | test: Top1 43.74  Top5 87.80  Loss 1.724
+[2022-08-05 19:50:46,760] trainer.py:302 INFO: epoch[85/300] train: Top1 67.00  Top5 91.75  Loss 0.980 | test: Top1 43.78  Top5 86.86  Loss 1.733
+[2022-08-05 19:50:59,675] trainer.py:302 INFO: epoch[86/300] train: Top1 70.25  Top5 93.75  Loss 1.089 | test: Top1 43.32  Top5 87.73  Loss 1.722
+[2022-08-05 19:51:12,609] trainer.py:302 INFO: epoch[87/300] train: Top1 84.50  Top5 99.25  Loss 0.707 | test: Top1 43.01  Top5 86.26  Loss 1.739
+[2022-08-05 19:51:25,510] trainer.py:302 INFO: epoch[88/300] train: Top1 65.25  Top5 90.75  Loss 1.159 | test: Top1 43.51  Top5 87.15  Loss 1.747
+[2022-08-05 19:51:38,403] trainer.py:302 INFO: epoch[89/300] train: Top1 74.75  Top5 93.00  Loss 0.891 | test: Top1 43.78  Top5 87.31  Loss 1.738
+[2022-08-05 19:51:51,307] trainer.py:302 INFO: epoch[90/300] train: Top1 78.25  Top5 97.00  Loss 0.878 | test: Top1 42.82  Top5 87.08  Loss 1.779
+[2022-08-05 19:52:04,588] trainer.py:302 INFO: epoch[91/300] train: Top1 56.75  Top5 82.75  Loss 1.235 | test: Top1 40.91  Top5 85.16  Loss 1.838
+[2022-08-05 19:52:17,463] trainer.py:302 INFO: epoch[92/300] train: Top1 80.25  Top5 98.00  Loss 0.594 | test: Top1 42.08  Top5 87.46  Loss 1.760
+[2022-08-05 19:52:30,354] trainer.py:302 INFO: epoch[93/300] train: Top1 73.00  Top5 92.50  Loss 0.957 | test: Top1 41.94  Top5 87.43  Loss 1.759
+[2022-08-05 19:52:43,233] trainer.py:302 INFO: epoch[94/300] train: Top1 69.25  Top5 90.25  Loss 0.831 | test: Top1 41.25  Top5 85.55  Loss 1.863
+[2022-08-05 19:52:56,200] trainer.py:302 INFO: epoch[95/300] train: Top1 73.25  Top5 90.50  Loss 0.884 | test: Top1 41.75  Top5 86.89  Loss 1.807

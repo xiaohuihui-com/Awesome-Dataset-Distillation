@@ -11,7 +11,7 @@
 | 2022 | [Synthesizing Informative Training Samples with GAN](https://arxiv.org/abs/2204.07513) |    -    |                              -                               |
 | 2022 | [Dataset Distillation using Neural Feature Regression](https://arxiv.org/abs/2206.00719) |    -    |                              -                               |
 | 2022 | [DC-BENCH: Dataset Condensation Benchmark](https://arxiv.org/abs/2207.09639) |    -    |                              -                               |
-| 2021 | [Dataset Condensation with Differentiable Siamese Augmentation](https://proceedings.mlr.press/v139/zhao21a.html), |  ICML   |   [code](https://github.com/VICO-UoE/DatasetCondensation)    |
+| 2021 | [Dataset Condensation with Differentiable Siamese Augmentation](https://proceedings.mlr.press/v139/zhao21a.html) |  ICML   |   [code](https://github.com/VICO-UoE/DatasetCondensation)    |
 | 2021 | [Dataset Distillation with Infinitely Wide Convolutional Networks](https://openreview.net/forum?id=hXWPpJedrVP) | NeurIPS |                              -                               |
 | 2021 | [Dataset Meta-learning from Kernel Ridge-regression](https://arxiv.org/abs/2011.00050v3) |  ICLR   |                              -                               |
 | 2021 | [Dataset Meta-Learning from Kernel Ridge-Regression](https://openreview.net/forum?id=l-PrrQrK0QR) |  ICLR   |                              -                               |
