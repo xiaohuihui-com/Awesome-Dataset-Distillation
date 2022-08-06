@@ -59,14 +59,26 @@ LOGGING_DIC = {
         },
     }
 }
+
+import logging
+
+
+def set_logfile(logger, logdir='.', mode='a'):
+    test_log = logging.FileHandler(os.path.join(logdir, 'log.log'), mode=mode, encoding='utf-8')
+    test_log.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('[%(asctime)s] %(filename)s:%(lineno)d %(levelname)s: %(message)s')
+    test_log.setFormatter(formatter)
+    logger.addHandler(test_log)
+
+
 if __name__ == '__main__':
     import logging.config
 
     logging.config.dictConfig(LOGGING_DIC)
-    print(dict(LOGGING_DIC))
     logger = logging.getLogger()  # 执行后会去日志字典的"logger"里面找这个'自定义日志名1'(key)
-    logger.info('logging.config.dictConfig')
+    # 追加写入文件a ，设置utf-8编码防止中文写入乱码
+    set_logfile(logger)
+    logging.info('logging.config.dictConfig')
     # import yaml
     # with open("settings.yaml", "w", encoding="utf8") as f:
     #     yaml.safe_dump(LOGGING_DIC, f, sort_keys=True)
-

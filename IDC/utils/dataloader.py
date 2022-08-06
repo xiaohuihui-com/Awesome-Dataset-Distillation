@@ -3,7 +3,9 @@ import numpy as np
 import torch
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
+import torchvision
 from .common import MEANS, STDS, IMG_EXTENSIONS
+from .decoder import decode
 from .transformer import transform_cifar, transform_svhn, transform_mnist, transform_fashion, transform_imagenet
 import warnings
 
@@ -582,3 +584,106 @@ def load_resized_data(args):
     assert train_dataset[0][0].shape[-1] == val_dataset[0][0].shape[-1]  # width check
 
     return train_dataset, val_loader
+
+
+def load_data_path(args, data_pt):
+    """Load condensed data from the given path
+    """
+    if args.pretrained:
+        args.augment = False
+
+    if args.dataset[:5] == 'cifar':
+        transform_fn = transform_cifar
+    elif args.dataset == 'svhn':
+        transform_fn = transform_svhn
+    elif args.dataset == 'mnist':
+        transform_fn = transform_mnist
+    elif args.dataset == 'fashion':
+        transform_fn = transform_fashion
+    train_transform, test_transform = transform_fn(augment=args.augment, from_tensor=False)
+
+    # Load condensed dataset
+    if 'idc' in args.method:
+        data, target = torch.load(data_pt)
+        print("Load condensed data ", data_pt, data.shape)
+        # This does not make difference to the performance
+        # data = torch.clamp(data, min=0., max=1.)
+        if args.factor > 1:
+            data, target = decode(args, data, target)
+
+        train_transform, _ = transform_fn(augment=args.augment, from_tensor=True)
+        train_dataset = TensorDataset(data, target, train_transform)
+
+
+
+    else:
+        if args.dataset == 'cifar10':
+            train_dataset = torchvision.datasets.CIFAR10(args.data_dir,
+                                                         train=True,
+                                                         transform=train_transform)
+        elif args.dataset == 'cifar100':
+            train_dataset = torchvision.datasets.CIFAR100(args.data_dir,
+                                                          train=True,
+                                                          transform=train_transform)
+        elif args.dataset == 'svhn':
+            train_dataset = torchvision.datasets.SVHN(os.path.join(args.data_dir, 'svhn'),
+                                                      split='train',
+                                                      transform=train_transform)
+            train_dataset.targets = train_dataset.labels
+        elif args.dataset == 'mnist':
+            train_dataset = torchvision.datasets.MNIST(args.data_dir,
+                                                       train=True,
+                                                       transform=train_transform)
+        elif args.dataset == 'fashion':
+            train_dataset = torchvision.datasets.FashionMNIST(args.data_dir,
+                                                              train=True,
+                                                              transform=train_transform)
+
+        indices = randomselect(train_dataset, args.ipc, nclass=args.nclass)
+        train_dataset = Subset(train_dataset, indices)
+        print(f"Random select {args.ipc} data (total {len(indices)})")
+
+    # Test dataset
+    if args.dataset == 'cifar10':
+        val_dataset = torchvision.datasets.CIFAR10(args.data_dir,
+                                                   train=False,
+                                                   transform=test_transform)
+    elif args.dataset == 'cifar100':
+        val_dataset = torchvision.datasets.CIFAR100(args.data_dir,
+                                                    train=False,
+                                                    transform=test_transform)
+    elif args.dataset == 'svhn':
+        val_dataset = torchvision.datasets.SVHN(os.path.join(args.data_dir, 'svhn'),
+                                                split='test',
+                                                transform=test_transform)
+    elif args.dataset == 'mnist':
+        val_dataset = torchvision.datasets.MNIST(args.data_dir,
+                                                 train=False,
+                                                 transform=test_transform)
+    elif args.dataset == 'fashion':
+        val_dataset = torchvision.datasets.FashionMNIST(args.data_dir,
+                                                        train=False,
+                                                        transform=test_transform)
+
+    print("Training data shape: ", train_dataset[0][0].shape)
+    os.makedirs('./results', exist_ok=True)
+    # save_img('./results/test.png',
+    #      torch.stack([d[0] for d in train_dataset]),
+    #      dataname=args.dataset)
+
+    return train_dataset, val_dataset
+
+
+def randomselect(dataset, ipc, nclass, targets=None):
+    if targets == None:
+        targets = dataset.targets
+    cls_idx = [[] for _ in range(nclass)]
+    for i in range(len(dataset)):
+        if targets[i] < nclass:
+            cls_idx[targets[i]].append(i)
+
+    indices = []
+    for c in range(nclass):
+        indices += cls_idx[c][:ipc]
+
+    return indices

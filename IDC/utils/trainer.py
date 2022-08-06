@@ -281,7 +281,7 @@ class Trainer(object):
         self.aug = aug
         self.plotter = Plotter(os.path.join(args.save_dir, args.dataset, args.model), args.epochs)
 
-    def fit(self,logger):
+    def fit(self, logger):
         # Load pretrained
         cur_epoch, best_acc1, best_acc5, acc1, acc5 = 0, 0, 0, 0, 0
         if self.args.pretrained:
@@ -409,7 +409,7 @@ class Trainer(object):
             print("=> loading checkpoint '{}'".format(path))
             checkpoint = torch.load(path)
             try:
-                checkpoint['state_dict']= dict(
+                checkpoint['state_dict'] = dict(
                     (key, value) for (key, value) in checkpoint['state_dict'].items())
             except:
                 checkpoint['state_dict'] = revise_module(checkpoint['state_dict'])
@@ -435,3 +435,180 @@ class Trainer(object):
             ckpt_path = os.path.join(self.save_dir, 'checkpoint.pth.tar')
         torch.save(state, ckpt_path)
         print("checkpoint saved! ", ckpt_path)
+
+
+class Tester(object):
+    """args:
+            dataset,model,epochs
+            save_dir,pretrained,save_ckpt
+            mixup,mix_p,beta
+            dsa,dsa_strategy
+            plotter
+        """
+
+    def __init__(self, model, train_loader, test_loader, nclass, criterion, optimizer, scheduler, device,
+                 args, aug=None):
+        super(Tester, self).__init__()
+        self.model = model
+        self.train_loader = train_loader
+        self.test_loader = test_loader
+        self.nclass = nclass
+        self.criterion = criterion
+        self.optimizer = optimizer
+        self.scheduler = scheduler
+        self.save_dir = os.path.join(args.save_dir, args.dataset, args.model)
+        self.device = device
+        self.args = args
+        self.aug = aug
+
+    def fit(self, logger):
+        # Load pretrained
+        cur_epoch, best_acc1, best_acc5, acc1, acc5 = 0, 0, 0, 0, 0
+        if self.args.pretrained:
+            path = os.path.join(self.save_dir, 'checkpoint.pth.tar')
+            cur_epoch, best_acc1 = self.load_checkpoint(path)
+
+        if self.args.dsa:
+            self.aug = DiffAug(strategy=self.args.dsa_strategy, batch=False)
+            logger.info(f"Start training with DSA and {self.args.mixup} mixup")
+        else:
+            self.aug = None
+            logger.info(f"Start training with base augmentation and {self.args.mixup} mixup")
+
+        for epoch in range(cur_epoch + 1, self.args.epochs + 1):
+            is_best = False
+            acc1_tr, acc5_tr, loss_tr = self.train(epoch)
+            if epoch % ((self.args.epochs + 1) // 4) == 0:
+                acc1, acc5, loss_val = self.validate(epoch)
+                logger.info(
+                    'epoch[{}/{}] train: Top1 {:.2f}  Top5 {:.2f}  Loss {:.3f} | test: Top1 {:.2f}  Top5 {:.2f}  Loss {:.3f}'
+                        .format(epoch, self.args.epochs, acc1_tr, acc5_tr, loss_tr, acc1, acc5, loss_val))
+                is_best = acc1 > best_acc1
+                if is_best:
+                    best_acc1 = acc1
+                    best_acc5 = acc5
+            self.scheduler.step()
+        return best_acc1, acc1
+
+    def train(self, epoch):
+        losses = AverageMeter()
+        top1 = AverageMeter()
+        top5 = AverageMeter()
+        self.model.train()
+        total = 0
+        for i, (input, target) in enumerate(self.train_loader):
+            input = input.to(self.device)
+            target = target.to(self.device)
+            if self.aug != None:
+                with torch.no_grad():
+                    input = self.aug(input)
+
+            r = np.random.rand(1)
+            if r < self.args.mix_p and self.args.mixup == 'cut':
+                # generate mixed sample
+                lam = np.random.beta(self.args.beta, self.args.beta)
+                rand_index = random_indices(target, nclass=self.nclass)
+
+                target_b = target[rand_index]
+                bbx1, bby1, bbx2, bby2 = rand_bbox(input.size(), lam)
+                input[:, :, bbx1:bbx2, bby1:bby2] = input[rand_index, :, bbx1:bbx2, bby1:bby2]
+                ratio = 1 - ((bbx2 - bbx1) * (bby2 - bby1) / (input.size()[-1] * input.size()[-2]))
+
+                output = self.model(input)
+                loss = self.criterion(output, target) * ratio + self.criterion(output, target_b) * (1. - ratio)
+            else:
+                output = self.model(input)
+                loss = self.criterion(output, target)
+            # measure accuracy and record loss
+            acc1, acc5 = accuracy(output.data, target, topk=(1, 5))
+
+            losses.update(loss.item(), input.size(0))
+            top1.update(acc1.item(), input.size(0))
+            top5.update(acc5.item(), input.size(0))
+            # compute gradient and do SGD step
+            self.optimizer.zero_grad()
+            loss.backward()
+            self.optimizer.step()
+            total += len(input)
+
+        return top1.avg, top5.avg, losses.avg
+
+    def validate(self, epoch):
+        losses = AverageMeter()
+        top1 = AverageMeter()
+        top5 = AverageMeter()
+        # switch to evaluate mode
+        self.model.eval()
+        total = 0
+        for i, (input, target) in enumerate(self.test_loader):
+            input = input.to(self.device)
+            target = target.to(self.device)
+            output = self.model(input)
+            loss = self.criterion(output, target)
+            # measure accuracy and record loss
+            acc1, acc5 = accuracy(output.data, target, topk=(1, 5))
+            losses.update(loss.item(), input.size(0))
+            top1.update(acc1.item(), input.size(0))
+            top5.update(acc5.item(), input.size(0))
+            total += len(input)
+
+        return top1.avg, top5.avg, losses.avg
+
+    def load_checkpoint(self, path):
+        if os.path.isfile(path):
+            print("=> loading checkpoint '{}'".format(path))
+            checkpoint = torch.load(path)
+            try:
+                checkpoint['state_dict'] = dict(
+                    (key, value) for (key, value) in checkpoint['state_dict'].items())
+            except:
+                checkpoint['state_dict'] = revise_module(checkpoint['state_dict'])
+            print(self.model.load_state_dict(checkpoint['state_dict'], strict=False))
+            self.model.load_state_dict(checkpoint['state_dict'])
+            cur_epoch = checkpoint['epoch']
+            best_acc1 = checkpoint['best_acc1']
+            self.optimizer.load_state_dict(checkpoint['optimizer'])
+            print("=> loaded checkpoint '{}'(epoch: {}, best acc1: {}%)".format(
+                path, cur_epoch, checkpoint['best_acc1']))
+        else:
+            print("=> no checkpoint found at '{}'".format(path))
+            cur_epoch = 0
+            best_acc1 = 100
+
+        return cur_epoch, best_acc1
+
+    def save_checkpoint(self, state, is_best):
+        os.makedirs(os.path.join(self.save_dir), exist_ok=True)
+        if is_best:
+            ckpt_path = os.path.join(self.save_dir, 'model_best.pth.tar')
+        else:
+            ckpt_path = os.path.join(self.save_dir, 'checkpoint.pth.tar')
+        torch.save(state, ckpt_path)
+        print("checkpoint saved! ", ckpt_path)
+
+
+def test_data(model, train_loader, val_loader, nclass, criterion, optimizer, scheduler, device, args, logger, repeat=3):
+    best_acc_l = []
+    acc_l = []
+    for i in range(repeat):
+        logger.info(f'repeat[{i + 1}/{repeat}]:')
+        trainer = Tester(model, train_loader, val_loader, nclass, criterion, optimizer, scheduler, device, args)
+        best_acc, acc = trainer.fit(logger)
+        best_acc_l.append(best_acc)
+        acc_l.append(acc)
+    logger.info(
+        f'Repeat {repeat} => Evalutation Best, last acc: {np.mean(best_acc_l):.2f} {np.mean(acc_l):.2f}\n')
+
+
+def train_data(model, train_loader, val_loader, nclass, criterion, optimizer, scheduler, device, args, logger,
+               repeat=1):
+    best_acc_l = []
+    acc_l = []
+    for i in range(repeat):
+        logger.info(f'repeat[{i + 1}/{repeat}]:')
+        trainer = Trainer(model, train_loader, val_loader, nclass, criterion, optimizer, scheduler, device, args)
+        best_acc, acc = trainer.fit(logger)
+        best_acc_l.append(best_acc)
+        acc_l.append(acc)
+    logger.info(
+        f'Repeat {repeat} => Best, last acc: {np.mean(best_acc_l):.2f} {np.mean(acc_l):.2f}\n')

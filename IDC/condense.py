@@ -7,14 +7,17 @@ import torch.nn as nn
 from torchvision.utils import save_image
 from models import get_model, get_optim, get_loss, get_scheduler
 from utils.common import set_seed, save_img
-
+from utils.matchloss import matchloss
 from utils.dataloader import load_resized_data, ClassMemDataLoader, ClassDataLoader
 from utils.augment import diffaug
-from utils.decoder import Synthesizer
+from utils.synth import Synthesizer
+from utils.trainer import Trainer
 from config import get_config, update_config
 from config import settings
 import logging.config
+import warnings
 
+warnings.filterwarnings("ignore")
 logging.config.dictConfig(settings.LOGGING_DIC)
 logger = logging.getLogger()
 
@@ -75,11 +78,41 @@ def main(args, repeat=1):
     optimizer = get_optim(learn['optim'])(pg, **learn[learn['optim']])
     scheduler = get_scheduler(learn['scheduler'])(optimizer, milestones=[2 * opt.epochs // 3, 5 * opt.epochs // 6],
                                                   gamma=0.2)
-    synset.test(opt, model, val_loader, nclass,
-                criterion,
-                optimizer,
-                scheduler,
-                device, logger, bench=False)
+    # synset.test(opt,model, val_loader, nclass,
+    #             criterion,
+    #             optimizer,
+    #             scheduler,
+    #             device, logger, bench=False)
+    optim_img = get_optim(learn['optim'])(synset.parameters(), lr=opt.lr_img, momentum=opt.mom_img)
+    for it in range(opt.niter):
+        loss_total = 0
+        synset.data.data = torch.clamp(synset.data.data, min=0., max=1.)
+        for ot in range(opt.inner_loop):
+            # Update synset
+            for c in range(nclass):
+                img, lab = train_loader.class_sample(c)
+                img_syn, lab_syn = synset.sample(c, max_size=128)
+                n = img.shape[0]
+                img_aug = aug(torch.cat([img, img_syn]))
+                loss = matchloss(opt, img_aug[:n], img_aug[n:], lab, lab_syn, model)
+                loss_total += loss.item()
+                optim_img.zero_grad()
+                loss.backward()
+                optim_img.step()
+
+            # Net update
+            if opt.n_data > 0:
+                for epoch in range(1):
+                    trainer = Trainer(model, train_loader, val_loader, nclass, criterion, optimizer, scheduler,
+                                          device,opt)
+                    trainer.train(epoch)
+        if it % 10 == 0:
+            logger.info(f"(Iter {it:3d}) loss: {loss_total / nclass / opt.inner_loop:.2f}")
+        # if (it + 1) in it_test:
+        #     save_img(os.path.join(args.save_dir, f'img{it + 1}.png'),
+        #              synset.data,
+        #              unnormalize=False,
+        #              dataname=args.dataset)
 
     # end_time = datetime.datetime.now()
     # run_time = (end_time - start_time).total_seconds()
